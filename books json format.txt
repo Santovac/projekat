@@ -1,0 +1,10 @@
+{
+    "id": ,
+    "title": "",
+    "author": "",
+    "isbn": "",
+    "publisher": "",
+    "year": 2020,
+    "price": 899.00,
+    "genre": ""
+},
