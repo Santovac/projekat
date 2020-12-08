@@ -1,0 +1,28 @@
+
+json.dump(datoteka, f)
+
+knjige = json.load(f)
+
+with open(datoteka) as f:
+	return json.load(f)
+
+with open(datoteka, "w") as f:
+	json.dump(knjige, f)
+
+json file
+
+[{"username": "Admin",
+  "password": "Admin",
+  "name": "Stefan",
+  "lastname": "Santovac",
+  "type": "Administrator"
+}]
+
+
+import module
+ako je crven prebaci u python package
+
+
+for korisnik in korisnici:
+	if korisnik['korisnicko_ime']== korisnicko_ime and korisnik['lozinka']==lozinka:
+		return korisnik
