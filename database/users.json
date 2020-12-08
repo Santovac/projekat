@@ -3,4 +3,16 @@
   "name": "Stefan",
   "lastname": "Santovac",
   "type": "Administrator"
+},
+{"username": "lilbaby_1",
+  "password": "4pf",
+  "name": "Dominique",
+  "lastname": "Jones",
+  "type": "Seller"
+},
+{"username": "visnjas",
+  "password": "visnjas",
+  "name": "Višnja",
+  "lastname": "Stojšin",
+  "type": "Manager"
 }]
