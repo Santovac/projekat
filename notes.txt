@@ -1,15 +1,7 @@
+############# In order for get.pass to work (no echo while inputting password) RUN>EDIT CONFIGURATIONS>EMULATE TERMINAL IN OUTPUT CONSOLE
 
-json.dump(datoteka, f)
 
-knjige = json.load(f)
-
-with open(datoteka) as f:
-	return json.load(f)
-
-with open(datoteka, "w") as f:
-	json.dump(knjige, f)
-
-json file
+### json file
 
 [{"username": "Admin",
   "password": "Admin",
@@ -19,6 +11,56 @@ json file
 }]
 
 
-import module
-ako je crven prebaci u python package
+### modules must be inside of a python package
 
+### JSON type variable:
+    new_user = {
+        "username": "",
+        "password": "",
+        "name": "",
+        "lastname": ""
+    }
+
+### find term (any string) , in str(book[key[i]]) (any string)
+import re
+
+    result = re.search(term.lower(), str(book[key[i]]).lower())
+            if (result != None):
+                notes.append(book)
+
+### force user to input specific (in this case integer) value
+
+       while True:
+           try:
+               term = int(input('\nMinimum price:'))
+               break
+           except ValueError: print('Please input whole numbers only...')
+
+### sorting using custom key
+employees = [
+    {'Name': 'Alan Turing', 'age': 25, 'salary': 10000},
+    {'Name': 'Sharon Lin', 'age': 30, 'salary': 8000},
+    {'Name': 'John Hopkins', 'age': 18, 'salary': 1000},
+    {'Name': 'Mikhail Tal', 'age': 40, 'salary': 15000},
+]
+0000
+# custom functions to get employee info
+def get_name(employee):
+    return employee.get('Name')
+
+
+def get_age(employee):
+    return employee.get('age')
+
+
+def get_salary(employee):
+    return employee.get('salary')
+
+
+# sort by name (Ascending order)
+employees.sort(key=get_name)
+print(employees, end='\n\n')
+
+# sort by Age (Ascending order)
+employees.sort(key=get_age)
+print(employees, end='\n\n')

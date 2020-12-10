@@ -5,13 +5,13 @@ books = load()
 i=0
 n=len(books)
 
-length = [1,1,1,1,1,1,1,1]
+length = [1,1,1,1,1,1,1,1,1]
 
-key = ['id','title','author','isbn','publisher','year','price','genre']
+key = ['id','title','author','isbn','publisher','year','price','genre','pages']
 
 def length_list():
     max='1'
-    for i in range(8):
+    for i in range(9):
         max = len(str(books[0][key[i]]))
         for j in range(n-1):
             if (max < len(str(books[j + 1][key[i]]))):
@@ -45,7 +45,7 @@ def show_list(books):
     print('Genre', end="")
     for i in range(length[7]+1):
         print(' ', end="")
-    print('\n')
+    print('Pages', end="\n")
     for book in books:
         print(book['id'], end="")
         for i in range(length[0]+3-len(str(book['id']))):
@@ -68,7 +68,10 @@ def show_list(books):
         print(book['price'], end="")
         for i in range(length[6]+6-len(str(book['price']))):
             print(' ',end="")
-        print(book['genre'], end="\n")
+        print(book['genre'], end="")
+        for i in range(length[7]+6-len(str(book['genre']))):
+            print(' ',end="")
+        print(book['pages'], end="\n")
         i+=1
 
 def get_title(books):
@@ -91,7 +94,7 @@ def list():
         print('4. Publisher')
         print('5. Price')
         print('6. Back')
-        option = input('Pick an option:')
+        option = input('Select an option:')
         if (option == '1'):
             sorter='title'
             break
@@ -165,7 +168,7 @@ def search():
     print('5. Publisher')
     print('6. Price range')
     print('7. Back')
-    option = input('Pick an option:')
+    option = input('Select an option:')
     if(option=='1' or option=='2' or option=='3' or option=='4' or option=='5'):
         term = input('Search:')
         notes=[]
@@ -182,8 +185,17 @@ def search():
         search()
     elif(option == '6'):
         notes = []
-        term = int(input('\nMinimum price:'))
-        term2 = int(input('Maximum price:'))
+        while True:
+            try:
+                term = int(input('\nMinimum price:'))
+                break
+            except ValueError: print('Please input whole numbers only...')
+
+        while True:
+            try:
+                term2 = int(input('Maximum price:'))
+                break
+            except ValueError: print('Please input whole numbers only...')
         for book in books:
             if(term <= book['price'] and term2 >= book['price']):
                 notes.append(book)
@@ -192,3 +204,81 @@ def search():
     elif(option == '7'):
         return False
     else: print('Invalid option, try again...')
+
+def register():
+    id = input("\nID (input 'back' to return to the main menu):")
+    for book in books:
+        if(book['id']==id):
+            print('Book with the same ID already exists, try again...')
+            register()
+        elif(id=='back'):
+            return False
+    title = input('Title:')
+    author = input('Author:')
+    isbn = input('ISBN:')
+    publisher = input('Publisher:')
+    year = int(input('Year:'))
+    price = float(input('Price:'))
+    genre = input('Genre:')
+    pages = int(input('Pages:'))
+    new_book = {
+        "id": "350497",
+        "title": "Medvedgrad",
+        "author": "Fredrik Bakman",
+        "isbn": "9788652139743",
+        "publisher": "Laguna",
+        "year": 2016,
+        "price": 899.00,
+        "genre": "Roman",
+        "pages": 447
+    }
+    new_book['id']= id
+    new_book['title'] = title
+    new_book['author'] = author
+    new_book['isbn'] = isbn
+    new_book['publisher']= publisher
+    new_book['year'] = year
+    new_book['price'] = price
+    new_book['genre'] = genre
+    new_book['pages']= pages
+
+    books.append(new_book)
+    save(books)
+    print('%s has been added to the book database. Book ID=[%s]' %(new_book['title'], new_book['id']))
+    return False
+'''
+def edit():
+    validator = 0
+    id = input("\nID (input 'back' to return to the main menu):")
+    for book in books:
+        if(books['id']==int(id)):
+            validator = 1
+            print('Book found.')
+            break
+        elif(username=='back'):
+            return False
+    if(validator=0):
+        print('Invalid ID, try again...')
+        register()
+    password = input('Password:')
+    name = input('Name:')
+    lastname = input('Lastname:')
+    type = input('Type (m/s):')
+    new_user = {
+        "username": "",
+        "password": "",
+        "name": "",
+        "lastname": ""
+    }
+    #print('new users:', new_user)
+    new_user['username']= username
+    new_user['password'] = password
+    new_user['name'] = name
+    new_user['lastname'] = lastname
+    if(type=='m'): new_user['type'] = 'Manager'
+    else: new_user['type']= 'Seller'
+    users.append(new_user)
+    save(users)
+    print('%s has been added to the user database. Account type=[%s]' %(new_user['username'], new_user['type']))
+    return False
+'''

@@ -14,7 +14,7 @@ def menu_administrator():
         print('9. Erase a book (Logical deletion)')
         print('10. Logout')
         print('11. Exit.')
-        option = input('Pick an option:')
+        option = input('Select an option:')
         if(option == '1'):
             if(book.list()==False):
                 menu_administrator()
@@ -31,12 +31,11 @@ def menu_administrator():
             if(user.register()==False):
                 menu_administrator()
         elif (option == '6'):
-            print('WIP')
-            #if(user.list()==False):
-            menu_administrator()
+            if(user.show_list()==False):
+                menu_administrator()
         elif (option == '7'):
-            print('WIP')
-            menu_administrator()
+            if(book.register()==False):
+                menu_administrator()
         elif (option == '8'):
             print('WIP')
             menu_administrator()
@@ -57,16 +56,16 @@ def main():
         if(i==3):
             print('Too many unsuccessful login attempts. Program shutting down...')
             return 0
-        user = user.login()
+        user1 = user.login()
         #print(user)
-        if(user!=False):
-            print('Login successful. Account type:', user['type'])
-            if(user['type']=='Administrator'):
+        if(user1!=False):
+            print('Login successful. Account type:', user1['type'])
+            if(user1['type']=='Administrator'):
                 menu_administrator()
-            if (user['type'] == 'Manager'):
+            if (user1['type'] == 'Manager'):
                 pass
-            if (user['type'] == 'Seller'):
+            if (user1['type'] == 'Seller'):
                 pass
-        elif(user==False and i<2): print('Login unsuccessful, try again.')
+        elif(user1==False and i<2): print('Login unsuccessful, try again.')
 
 main()
