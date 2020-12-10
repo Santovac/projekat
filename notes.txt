@@ -22,7 +22,3 @@ json file
 import module
 ako je crven prebaci u python package
 
-
-for korisnik in korisnici:
-	if korisnik['korisnicko_ime']== korisnicko_ime and korisnik['lozinka']==lozinka:
-		return korisnik

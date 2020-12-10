@@ -18,6 +18,7 @@ def length_list():
                 max = len(str(books[j + 1][key[i]]))
         length[i]=max
 
+#RESPONSIVE TABLE
 def show_list(books):
     length_list()
     print('\nID', end="")
@@ -90,23 +91,23 @@ def list():
         print('4. Publisher')
         print('5. Price')
         print('6. Back')
-        option = int(input('Pick an option:'))
-        if (option == 1):
+        option = input('Pick an option:')
+        if (option == '1'):
             sorter='title'
             break
-        elif (option == 2):
+        elif (option == '2'):
             sorter = 'genre'
             break
-        elif (option == 3):
+        elif (option == '3'):
             sorter = 'author'
             break
-        elif (option == 4):
+        elif (option == '4'):
             sorter = 'publisher'
             break
-        elif (option == 5):
+        elif (option == '5'):
             sorter = 'price'
             break
-        elif (option==6):
+        elif (option=='6'):
             return False
         else: print('Invalid option, try again...')
 
@@ -164,30 +165,30 @@ def search():
     print('5. Publisher')
     print('6. Price range')
     print('7. Back')
-    option = int(input('Pick an option:'))
-    if(option==1 or option==2 or option==3 or option==4 or option==5):
+    option = input('Pick an option:')
+    if(option=='1' or option=='2' or option=='3' or option=='4' or option=='5'):
         term = input('Search:')
         notes=[]
         for book in books:
-            if   (option == 1): i = 0
-            elif (option == 2): i = 1
-            elif (option == 3): i = 2
-            elif (option == 4): i = 7
-            elif (option == 5): i = 4
+            if   (option == '1'): i = 0
+            elif (option == '2'): i = 1
+            elif (option == '3'): i = 2
+            elif (option == '4'): i = 7
+            elif (option == '5'): i = 4
             result = re.search(term.lower(), str(book[key[i]]).lower())
             if (result != None):
                 notes.append(book)
         show_list(notes)
         search()
-    elif(option == 6):
+    elif(option == '6'):
         notes = []
-        term = int(input('Minimum price:'))
+        term = int(input('\nMinimum price:'))
         term2 = int(input('Maximum price:'))
         for book in books:
             if(term <= book['price'] and term2 >= book['price']):
                 notes.append(book)
         show_list(notes)
         search()
-    elif(option == 7):
+    elif(option == '7'):
         return False
     else: print('Invalid option, try again...')
