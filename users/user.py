@@ -251,7 +251,7 @@ def manager_register():
         "name": "",
         "lastname": ""
     }
-    new_user['username']= username
+    new_user['username'] = username
     new_user['password'] = password
     new_user['name'] = name
     new_user['lastname'] = lastname

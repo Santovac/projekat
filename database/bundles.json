@@ -1,8 +1,8 @@
 [{
-  "id": ,
-  "articles": {
-    "title" : "",
-    "price" : ""
-  },
+  "id": 1,
+  "articles": [{
+      "id":"",
+      "price" : ""
+  }],
   "expiry": ""
 }]

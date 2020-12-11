@@ -2,9 +2,10 @@
   "id": ,
   "seller": "",
   "date_time": "",
-  "articles": {
+  "articles": [{
+    "id": "",
     "quantity" : "",
     "price" : ""
-  },
+  }],
   "total":
 }]

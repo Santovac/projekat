@@ -7,18 +7,32 @@
       "type":"Administrator"
    },
    {
+      "username":"visnjas",
+      "password":"visnjas",
+      "name":"Vi\u0161nja",
+      "lastname":"Stoj\u0161in",
+      "type":"Manager"
+   },
+   {
+      "username":"future",
+      "password":"freebandz",
+      "name":"Nayvadius",
+      "lastname":"Wilburn",
+      "type":"Manager"
+   },
+   {
+      "username":"jhus",
+      "password":"commonsense",
+      "name":"Momodou",
+      "lastname":"Jallow",
+      "type":"Manager"
+   },
+   {
       "username":"lilbaby_1",
       "password":"4pf",
       "name":"Dominique",
       "lastname":"Jones",
       "type":"Seller"
-   },
-   {
-      "username":"visnjas",
-      "password":"visnjas",
-      "name":"Visnja",
-      "lastname":"Stojsin",
-      "type":"Manager"
    },
    {
       "username":"gunna",
@@ -42,10 +56,10 @@
       "type":"Seller"
    },
    {
-      "username":"future",
-      "password":"freebandz",
-      "name":"Nayvadius",
-      "lastname":"Wilburn",
-      "type":"Manager"
+      "username":"b.halid",
+      "password":"miljacka",
+      "name":"Halid",
+      "lastname":"Be\u0161li\u0107",
+      "type":"Seller"
    }
 ]

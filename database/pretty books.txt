@@ -8,7 +8,8 @@
       "year":2016,
       "price":899.0,
       "genre":"Roman",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"332054",
@@ -19,7 +20,8 @@
       "year":2019,
       "price":899.0,
       "genre":"Doma\u0107i roman",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"318296",
@@ -30,7 +32,8 @@
       "year":2017,
       "price":1909.2,
       "genre":"Travel",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"351078",
@@ -41,7 +44,8 @@
       "year":2020,
       "price":1100.0,
       "genre":"Popularna psihologija",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"350520",
@@ -52,7 +56,8 @@
       "year":2020,
       "price":682.0,
       "genre":"Doma\u0107i roman",
-      "pages":447
+      "pages":96,
+      "erased": false
    },
    {
       "id":"248064",
@@ -63,7 +68,8 @@
       "year":2012,
       "price":899.0,
       "genre":"Trileri",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"348755",
@@ -74,7 +80,8 @@
       "year":2020,
       "price":990.0,
       "genre":"Doma\u0107i roman",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"350311",
@@ -85,7 +92,8 @@
       "year":2020,
       "price":836.0,
       "genre":"Doma\u0107i roman",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"348463",
@@ -96,7 +104,8 @@
       "year":2020,
       "price":899.0,
       "genre":"Doma\u0107i roman",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"349321",
@@ -107,7 +116,8 @@
       "year":2020,
       "price":899.0,
       "genre":"Istorijski roman",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"350248",
@@ -118,7 +128,8 @@
       "year":2020,
       "price":3850.0,
       "genre":"Op\u0161ta umetnost",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"350179",
@@ -129,7 +140,8 @@
       "year":2020,
       "price":2500.0,
       "genre":"Muzika",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"350270",
@@ -140,7 +152,8 @@
       "year":2020,
       "price":770.0,
       "genre":"Muzika",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"343896",
@@ -151,7 +164,8 @@
       "year":2019,
       "price":899.0,
       "genre":"Muzika",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"350256",
@@ -162,7 +176,8 @@
       "year":2020,
       "price":1320.0,
       "genre":"Poezija",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"349198",
@@ -173,7 +188,8 @@
       "year":2020,
       "price":699.0,
       "genre":"Poezija",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"350403",
@@ -184,7 +200,8 @@
       "year":2020,
       "price":880.0,
       "genre":"Poezija",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"348277",
@@ -195,7 +212,8 @@
       "year":2002,
       "price":330.0,
       "genre":"Poezija",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"351105",
@@ -206,7 +224,8 @@
       "year":2019,
       "price":490.0,
       "genre":"Istorija",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"350857",
@@ -217,7 +236,8 @@
       "year":2020,
       "price":1430.0,
       "genre":"Istorija",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"350915",
@@ -228,7 +248,8 @@
       "year":2020,
       "price":550.0,
       "genre":"Religija i Teologija",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"350862",
@@ -239,7 +260,8 @@
       "year":2020,
       "price":495.0,
       "genre":"Politika",
-      "pages":447
+      "pages":447,
+      "erased": false
    },
    {
       "id":"2280",
@@ -250,6 +272,19 @@
       "year":1995,
       "price":587.22,
       "genre":"Video Game",
-      "pages":1337
+      "pages":1337,
+      "erased": false
+   },
+   {
+      "id":"328709",
+      "title":"LSD Moje problemati\u010dno dete",
+      "author":"Albert Hofman",
+      "isbn":"9788680792132",
+      "publisher":"Babun",
+      "year":2018,
+      "price":698.5,
+      "genre":"Narkomanija i alkoholizam",
+      "pages":212,
+      "erased": false
    }
 ]
