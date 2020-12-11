@@ -1,5 +1,10 @@
 ############# In order for get.pass to work (no echo while inputting password) RUN>EDIT CONFIGURATIONS>EMULATE TERMINAL IN OUTPUT CONSOLE
 
+import getpass
+
+pswd = getpass.getpass('Password:')
+print(pswd)
+
 
 ### json file
 

@@ -19,7 +19,7 @@ def length_list():
         length[i]=max
 
 #RESPONSIVE TABLE
-def show_list(books):
+def list(bookslist):
     length_list()
     print('\nID', end="")
     for i in range(length[0]+1):
@@ -46,7 +46,7 @@ def show_list(books):
     for i in range(length[7]+1):
         print(' ', end="")
     print('Pages', end="\n")
-    for book in books:
+    for book in bookslist:
         print(book['id'], end="")
         for i in range(length[0]+3-len(str(book['id']))):
             print(' ',end="")
@@ -85,7 +85,7 @@ def get_publisher(books):
 def get_price(books):
     return books.get('price')
 
-def list():
+def sort():
     while True:
         print('\nSort by:')
         print('1. Title')
@@ -116,8 +116,10 @@ def list():
 
     if(sorter=='title'):
         sorter=input('Ascending or desceding(a/d)?')
-        if(sorter=='a'): books.sort(key=get_title)
-        elif(sorter=='d'): books.sort(key=get_title, reverse=True)
+        if(sorter=='a'):
+            books.sort(key=get_title)
+        elif(sorter=='d'):
+            books.sort(key=get_title, reverse=True)
         else:
             print("Invalid option selected, ascending mode selected by default.")
             books.sort(key=get_title)
@@ -129,6 +131,7 @@ def list():
         else:
             print("Invalid option selected, ascending mode selected by default.")
             books.sort(key=get_genre)
+
     elif (sorter == 'author'):
         sorter = input('Ascending or desceding(a/d)?')
         if (sorter == 'a'): books.sort(key=get_author)
@@ -136,6 +139,7 @@ def list():
         else:
             print("Invalid option selected, ascending mode selected by default.")
             books.sort(key=get_author)
+
     elif (sorter == 'publisher'):
         sorter = input('Ascending or desceding(a/d)?')
         if (sorter == 'a'):
@@ -145,6 +149,7 @@ def list():
         else:
             print("Invalid option selected, ascending mode selected by default.")
             books.sort(key=get_publisher)
+
     elif (sorter == 'price'):
         sorter = input('Ascending or desceding(a/d)?')
         if (sorter == 'a'):
@@ -154,7 +159,7 @@ def list():
         else:
             print("Invalid option selected, ascending mode selected by default.")
             books.sort(key=get_price)
-    show_list(books)
+    list(books)
 
 
 
@@ -181,7 +186,7 @@ def search():
             result = re.search(term.lower(), str(book[key[i]]).lower())
             if (result != None):
                 notes.append(book)
-        show_list(notes)
+        list(notes)
         search()
     elif(option == '6'):
         notes = []
@@ -199,18 +204,34 @@ def search():
         for book in books:
             if(term <= book['price'] and term2 >= book['price']):
                 notes.append(book)
-        show_list(notes)
+        list(notes)
         search()
     elif(option == '7'):
         return False
-    else: print('Invalid option, try again...')
+    else:
+        print('Invalid option, try again...')
+        if(search()==False): return False
 
 def register():
-    id = input("\nID (input 'back' to return to the main menu):")
+    while True:
+        id = input("\nID (input 'back' to return to the main menu):")
+        if(id!=''):
+            result = re.search(' ', id)
+            if(result==None):
+                break
+            else:
+                print("ID cannot contain spaces, try again...")
+                if(register()==False):
+                    return False
+        else:
+            print("ID cannot be blank, try again...")
+            if(register()==False):
+                return False
     for book in books:
         if(book['id']==id):
             print('Book with the same ID already exists, try again...')
-            register()
+            if(register()==False):
+                return False
         elif(id=='back'):
             return False
     title = input('Title:')
@@ -246,39 +267,99 @@ def register():
     save(books)
     print('%s has been added to the book database. Book ID=[%s]' %(new_book['title'], new_book['id']))
     return False
-'''
+
 def edit():
     validator = 0
     id = input("\nID (input 'back' to return to the main menu):")
+    i=0
     for book in books:
-        if(books['id']==int(id)):
+        if(book['id']==id):
             validator = 1
             print('Book found.')
             break
-        elif(username=='back'):
+        elif(id=='back'):
             return False
-    if(validator=0):
+        i+=1
+    if(validator==0):
         print('Invalid ID, try again...')
-        register()
-    password = input('Password:')
-    name = input('Name:')
-    lastname = input('Lastname:')
-    type = input('Type (m/s):')
-    new_user = {
-        "username": "",
-        "password": "",
-        "name": "",
-        "lastname": ""
+        if(edit()==False):
+            return False
+    old_book = {
+        "id": "350497",
+        "title": "Medvedgrad",
+        "author": "Fredrik Bakman",
+        "isbn": "9788652139743",
+        "publisher": "Laguna",
+        "year": 2016,
+        "price": 899.00,
+        "genre": "Roman",
+        "pages": 447
     }
-    #print('new users:', new_user)
-    new_user['username']= username
-    new_user['password'] = password
-    new_user['name'] = name
-    new_user['lastname'] = lastname
-    if(type=='m'): new_user['type'] = 'Manager'
-    else: new_user['type']= 'Seller'
-    users.append(new_user)
-    save(users)
-    print('%s has been added to the user database. Account type=[%s]' %(new_user['username'], new_user['type']))
+    old_book=books[i]
+    z=i
+    old_books = [old_book]
+    list(old_books)
+
+    title = input('\nOverwrite title (blank string will not overwrite this information):')
+    if(title==''):
+        title=books[i]['title']
+    author = input('Overwrite author (blank string will not overwrite this information):')
+    if (author == ''):
+        author = books[i]['author']
+    isbn = input('Overwrite ISBN (blank string will not overwrite this information):')
+    if (isbn == ''):
+        isbn = books[i]['isbn']
+    publisher = input('Overwrite publisher (blank string will not overwrite this information):')
+    if (publisher == ''):
+        publisher = books[i]['publisher']
+    try:
+        year = int(input('Overwrite year (blank string will not overwrite this information):'))
+    except ValueError:
+        year = books[i]['year']
+    try:
+        price = float(input('Overwrite price (blank string will not overwrite this information):'))
+    except ValueError:
+        price = books[i]['price']
+    genre = input('Overwrite genre (blank string will not overwrite this information):')
+    if (genre == ''):
+        genre = books[i]['genre']
+    try:
+        pages = int(input('Overwrite pages (blank string will not overwrite this information):'))
+    except ValueError:
+        pages = books[i]['pages']
+    new_book = {
+        "id": "350497",
+        "title": "Medvedgrad",
+        "author": "Fredrik Bakman",
+        "isbn": "9788652139743",
+        "publisher": "Laguna",
+        "year": 2016,
+        "price": 899.00,
+        "genre": "Roman",
+        "pages": 447
+    }
+    new_book['id']= id
+    new_book['title'] = title
+    new_book['author'] = author
+    new_book['isbn'] = isbn
+    new_book['publisher']= publisher
+    new_book['year'] = year
+    new_book['price'] = price
+    new_book['genre'] = genre
+    new_book['pages']= pages
+
+    old_books = [books[z],new_book]
+    print('\nOverwriting top with bottom:')
+    list(old_books)
+    while True:
+        print('\nDo you wish to proceed?\n1. Yes\n2. Cancel')
+        option = input('Input:')
+        if(option=='1'):
+            books[z]=new_book
+            break
+        elif(option=='2'): return False
+        else: print('Invalid option selected, try again...')
+
+    save(books)
+    print('%s has been edited in the book database. Book ID=[%s]' %(new_book['title'], new_book['id']))
     return False
-'''
