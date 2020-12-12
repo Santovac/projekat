@@ -3,6 +3,8 @@ from books import book
 
 def menu_administrator():
     while True:
+        type = 'a'
+        book.permissions(type)
         print('\n1. List all books')
         print('2. Search books')
         print('3. List all bundles')
@@ -41,8 +43,8 @@ def menu_administrator():
                 menu_administrator()
             menu_administrator()
         elif (option == '9'):
-            print('WIP')
-            menu_administrator()
+            if(book.erase()==False):
+                menu_administrator()
         elif(option == '10'):
             main()
         elif(option == '11'):
@@ -53,6 +55,8 @@ def menu_administrator():
 
 def menu_manager():
     while True:
+        type = 'm'
+        book.permissions(type)
         print('\n1. List all books')
         print('2. Search books')
         print('3. List all bundles')
@@ -98,6 +102,8 @@ def menu_manager():
 
 def menu_seller():
     while True:
+        type = 's'
+        book.permissions(type)
         print('\n1. List all books')
         print('2. Search books')
         print('3. List all bundles')
@@ -131,8 +137,8 @@ def menu_seller():
             if(book.edit()==False):
                 menu_seller()
         elif (option == '8'):
-            print('WIP')
-            menu_seller()
+            if(book.erase()==False):
+                menu_seller()
         elif(option == '9'):
             main()
         elif(option == '10'):

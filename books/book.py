@@ -1,6 +1,12 @@
 from books.booklist import load, save
 import re
 
+type='neutral'
+
+def permissions(rights):
+    global type
+    type=rights
+
 books = load()
 i=0
 n=len(books)
@@ -47,32 +53,33 @@ def list(bookslist):
         print(' ', end="")
     print('Pages', end="\n")
     for book in bookslist:
-        print(book['id'], end="")
-        for i in range(length[0]+3-len(str(book['id']))):
-            print(' ',end="")
-        print(book['title'], end="")
-        for i in range(length[1]+6-len(str(book['title']))):
-            print(' ',end="")
-        print(book['author'], end="")
-        for i in range(length[2]+7-len(str(book['author']))):
-            print(' ',end="")
-        print(book['isbn'], end="")
-        for i in range(length[3]+5-len(str(book['isbn']))):
-            print(' ',end="")
-        print(book['publisher'], end="")
-        for i in range(length[4]+10-len(str(book['publisher']))):
-            print(' ',end="")
-        print(book['year'], end="")
-        for i in range(length[5]+5-len(str(book['year']))):
-            print(' ',end="")
-        print(book['price'], end="")
-        for i in range(length[6]+6-len(str(book['price']))):
-            print(' ',end="")
-        print(book['genre'], end="")
-        for i in range(length[7]+6-len(str(book['genre']))):
-            print(' ',end="")
-        print(book['pages'], end="\n")
-        i+=1
+        if(type=='a' or book['erased']== False ):
+            print(book['id'], end="")
+            for i in range(length[0]+3-len(str(book['id']))):
+                print(' ',end="")
+            print(book['title'], end="")
+            for i in range(length[1]+6-len(str(book['title']))):
+                print(' ',end="")
+            print(book['author'], end="")
+            for i in range(length[2]+7-len(str(book['author']))):
+                print(' ',end="")
+            print(book['isbn'], end="")
+            for i in range(length[3]+5-len(str(book['isbn']))):
+                print(' ',end="")
+            print(book['publisher'], end="")
+            for i in range(length[4]+10-len(str(book['publisher']))):
+                print(' ',end="")
+            print(book['year'], end="")
+            for i in range(length[5]+5-len(str(book['year']))):
+                print(' ',end="")
+            print(book['price'], end="")
+            for i in range(length[6]+6-len(str(book['price']))):
+                print(' ',end="")
+            print(book['genre'], end="")
+            for i in range(length[7]+6-len(str(book['genre']))):
+                print(' ',end="")
+            print(book['pages'], end="\n")
+        else: pass
 
 def get_title(books):
     return books.get('title')
@@ -251,7 +258,8 @@ def register():
         "year": 2016,
         "price": 899.00,
         "genre": "Roman",
-        "pages": 447
+        "pages": 447,
+        "erased": False
     }
     new_book['id']= id
     new_book['title'] = title
@@ -262,11 +270,13 @@ def register():
     new_book['price'] = price
     new_book['genre'] = genre
     new_book['pages']= pages
+    new_book['erased']= False
 
     books.append(new_book)
     save(books)
     print('%s has been added to the book database. Book ID=[%s]' %(new_book['title'], new_book['id']))
     return False
+
 
 def edit():
     validator = 0
@@ -293,7 +303,8 @@ def edit():
         "year": 2016,
         "price": 899.00,
         "genre": "Roman",
-        "pages": 447
+        "pages": 447,
+        "erased": False
     }
     old_book=books[i]
     z=i
@@ -327,6 +338,7 @@ def edit():
         pages = int(input('Overwrite pages (blank string will not overwrite this information):'))
     except ValueError:
         pages = books[i]['pages']
+    erased=books[i]['erased']
     new_book = {
         "id": "350497",
         "title": "Medvedgrad",
@@ -336,7 +348,8 @@ def edit():
         "year": 2016,
         "price": 899.00,
         "genre": "Roman",
-        "pages": 447
+        "pages": 447,
+        "erased": False
     }
     new_book['id']= id
     new_book['title'] = title
@@ -347,6 +360,7 @@ def edit():
     new_book['price'] = price
     new_book['genre'] = genre
     new_book['pages']= pages
+    new_book['erased'] = erased
 
     old_books = [books[z],new_book]
     print('\nOverwriting top with bottom:')
@@ -362,4 +376,54 @@ def edit():
 
     save(books)
     print('%s has been edited in the book database. Book ID=[%s]' %(new_book['title'], new_book['id']))
+    return False
+
+
+def erase():
+    z=-1
+    i=0
+    while True:
+        id = input("\nID (input 'back' to return to the main menu):")
+        if(id=='back'):
+            return False
+        elif(id!=''):
+            result = re.search(' ', id)
+            if(result==None):
+                break
+            else:
+                print("ID cannot contain spaces, try again...")
+                if(erase()==False):
+                    return False
+        else:
+            print("ID cannot be blank, try again...")
+            if(erase()==False):
+                return False
+    for book in books:
+        if(book['id']==id):
+            print('Book found.')
+            z=i
+            break
+        i+= 1
+    if(z==-1):
+        print('Book not found, try again...')
+        if(erase()==False):
+            return False
+    deleted_books = [books[z]]
+    print('\nBook will be erased:')
+    list(deleted_books)
+    while True:
+        print('\nDo you wish to proceed?\n1. Yes\n2. Cancel')
+        option = input('Input:')
+        if (option == '1'):
+            del_book = books[z]
+            del_book['erased'] = True
+            break
+        elif (option == '2'):
+            return False
+        else:
+            print('Invalid option selected, try again...')
+
+    save(books)
+
+    print('%s has been erased in the book database. Book ID=[%s]' % (del_book['title'], del_book['id']))
     return False
