@@ -1,12 +1,17 @@
-from datetime import datetime
+from datetime import date
 
-racun = {
-"sifra": "123",
-  "prodavac": "S",
-  "datum_vreme": ""
+receipt = {
+"id": "123",
+  "seller": "S",
+  "date": date(2020, 12, 16)
 }
-racun['datum_vreme'] = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-print(racun)
+
+if(receipt['date'] >= date.today()): #.strftime("%d/%m/%Y")
+  print(receipt)
+
+
+#datetime_object = datetime.now()
+#print(datetime_object)
 
 '''
 new_user = {
