@@ -7,5 +7,5 @@ def load():
         return json.load(f)
 
 def save(users_new):
-    with open(path, "w") as f:
-        json.dump(users_new, f)
+    with open(path, "w", encoding='utf-8') as f:
+        json.dump(users_new, f,  ensure_ascii=False, indent=4)

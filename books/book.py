@@ -15,6 +15,8 @@ length = [1,1,1,1,1,1,1,1,1]
 
 key = ['id','title','author','isbn','publisher','year','price','genre','pages']
 
+lista=[0,1,2,3,4,5,6,7,8]
+
 def length_list():
     max='1'
     for i in range(9):
