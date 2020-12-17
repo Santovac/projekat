@@ -1,0 +1,17 @@
+[
+    {
+        "id": 456,
+        "name": "William Smithović",
+        "salary": 8000,
+        "new_key": 1
+    },
+    {
+        "name": "William Smith",
+        "salary": 8000
+    },
+    {
+        "id": 456,
+        "salary": 8000,
+        "new_key": 0
+    }
+]
