@@ -68,14 +68,6 @@ def list(users):
         i+=1
 
 
-def get_name(users):
-    return users.get('name')
-def get_lastname(users):
-    return users.get('lastname')
-
-def get_type(users):
-    return users.get('type')
-
 def sort():
     while True:
         print('\nSort by:')
@@ -100,32 +92,32 @@ def sort():
     if(sorter=='name'):
         sorter=input('Ascending or desceding(a/d)?')
         if(sorter=='a'):
-            users.sort(key=get_name)
+            users.sort(key=lambda users:users.get('name'))
         elif(sorter=='d'):
-            users.sort(key=get_name, reverse=True)
+            users.sort(key=lambda users:users.get('name'), reverse=True)
         else:
             print("Invalid option selected, ascending mode selected by default.")
-            users.sort(key=get_name)
+            users.sort(key=lambda users:users.get('name'))
 
     elif (sorter == 'lastname'):
         sorter = input('Ascending or desceding(a/d)?')
         if (sorter == 'a'):
-            users.sort(key=get_lastname)
+            users.sort(key=lambda users:users.get('lastname'))
         elif (sorter == 'd'):
-            users.sort(key=get_lastname, reverse=True)
+            users.sort(key=lambda users:users.get('lastname'), reverse=True)
         else:
             print("Invalid option selected, ascending mode selected by default.")
-            users.sort(key=get_lastname)
+            users.sort(key=lambda users:users.get('lastname'))
 
     elif (sorter == 'type'):
         sorter = input('Ascending or desceding(a/d)?')
         if (sorter == 'a'):
-            users.sort(key=get_type, reverse=True)
+            users.sort(key=lambda users:users.get('type'))
         elif (sorter == 'd'):
-            users.sort(key=get_type)
+            users.sort(key=lambda users:users.get('type'), reverse=True)
         else:
             print("Invalid option selected, ascending mode selected by default.")
-            users.sort(key=get_type, reverse=True)
+            users.sort(key=lambda users:users.get('type'))
     list(users)
 
 def list_one(users):

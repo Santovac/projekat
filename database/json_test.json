@@ -3,15 +3,18 @@
         "id": 456,
         "name": "William Smithović",
         "salary": 8000,
-        "new_key": 1
+        "new_key": 1,
+        "expiry": "2020-12-31"
     },
     {
         "name": "William Smith",
-        "salary": 8000
+        "salary": 8000,
+        "expiry": "2021-01-31"
     },
     {
         "id": 456,
         "salary": 8000,
-        "new_key": 0
+        "new_key": 0,
+        "expiry": "2020-12-25"
     }
 ]

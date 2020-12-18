@@ -1,5 +1,6 @@
 from users import user
 from books import book
+from bundles import bundle
 
 def menu_administrator():
     while True:
@@ -24,8 +25,8 @@ def menu_administrator():
             if(book.search()==False):
                 menu_administrator()
         elif (option == '3'):
-            print('WIP')
-            menu_administrator()
+            if (bundle.sort() == False):
+                menu_administrator()
         elif (option == '4'):
             print('WIP')
             menu_administrator()

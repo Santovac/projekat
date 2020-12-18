@@ -15,7 +15,6 @@ length = [1,1,1,1,1,1,1,1,1]
 
 key = ['id','title','author','isbn','publisher','year','price','genre','pages']
 
-lista=[0,1,2,3,4,5,6,7,8]
 
 def length_list():
     max='1'
@@ -54,6 +53,7 @@ def list(bookslist):
     for i in range(length[7]+1):
         print(' ', end="")
     print('Pages', end="\n")
+    print('')
     for book in bookslist:
         if(type=='a' or book['erased']== False ):
             print(book['id'], end="")
@@ -82,17 +82,6 @@ def list(bookslist):
                 print(' ',end="")
             print(book['pages'], end="\n")
         else: pass
-
-def get_title(books):
-    return books.get('title')
-def get_genre(books):
-    return books.get('genre')
-def get_author(books):
-    return books.get('author')
-def get_publisher(books):
-    return books.get('publisher')
-def get_price(books):
-    return books.get('price')
 
 def sort():
     while True:
@@ -126,48 +115,50 @@ def sort():
     if(sorter=='title'):
         sorter=input('Ascending or desceding(a/d)?')
         if(sorter=='a'):
-            books.sort(key=get_title)
+            books.sort(key=lambda books:books.get('title'))
         elif(sorter=='d'):
-            books.sort(key=get_title, reverse=True)
+            books.sort(key=lambda books:books.get('title'), reverse=True)
         else:
             print("Invalid option selected, ascending mode selected by default.")
-            books.sort(key=get_title)
+            books.sort(key=lambda books:books.get('title'))
 
     elif (sorter == 'genre'):
         sorter = input('Ascending or desceding(a/d)?')
-        if (sorter == 'a'): books.sort(key=get_genre)
-        elif (sorter == 'd'): books.sort(key=get_genre, reverse=True)
+        if (sorter == 'a'):
+            books.sort(key=lambda books:books.get('genre'))
+        elif (sorter == 'd'):
+            books.sort(key=lambda books:books.get('genre'), reverse=True)
         else:
             print("Invalid option selected, ascending mode selected by default.")
-            books.sort(key=get_genre)
+            books.sort(key=lambda books:books.get('genre'))
 
     elif (sorter == 'author'):
         sorter = input('Ascending or desceding(a/d)?')
-        if (sorter == 'a'): books.sort(key=get_author)
-        elif (sorter == 'd'): books.sort(key=get_author, reverse=True)
+        if (sorter == 'a'): books.sort(key=lambda books:books.get('author'))
+        elif (sorter == 'd'): books.sort(key=lambda books:books.get('author'), reverse=True)
         else:
             print("Invalid option selected, ascending mode selected by default.")
-            books.sort(key=get_author)
+            books.sort(key=lambda books:books.get('author'))
 
     elif (sorter == 'publisher'):
         sorter = input('Ascending or desceding(a/d)?')
         if (sorter == 'a'):
-            books.sort(key=get_publisher)
+            books.sort(key=lambda books:books.get('publisher'))
         elif (sorter == 'd'):
-            books.sort(key=get_publisher, reverse=True)
+            books.sort(key=lambda books:books.get('publisher'), reverse=True)
         else:
             print("Invalid option selected, ascending mode selected by default.")
-            books.sort(key=get_publisher)
+            books.sort(key=lambda books:books.get('publisher'))
 
     elif (sorter == 'price'):
         sorter = input('Ascending or desceding(a/d)?')
         if (sorter == 'a'):
-            books.sort(key=get_price)
+            books.sort(key=lambda books:books.get('price'))
         elif (sorter == 'd'):
-            books.sort(key=get_price, reverse=True)
+            books.sort(key=lambda books:books.get('price'), reverse=True)
         else:
             print("Invalid option selected, ascending mode selected by default.")
-            books.sort(key=get_price)
+            books.sort(key=lambda books:books.get('price'))
     list(books)
 
 
