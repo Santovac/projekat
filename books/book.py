@@ -8,7 +8,7 @@ def permissions(rights):
     type=rights
 
 books = load()
-i=0
+#i=0
 n=len(books)
 
 length = [1,1,1,1,1,1,1,1,1]
