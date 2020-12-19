@@ -286,5 +286,17 @@
         "genre": "Opšta umetnost",
         "pages": 447,
         "erased": false
+    },
+    {
+        "id": "335496",
+        "title": "Nečista krv",
+        "author": "Borislav Stanković",
+        "isbn": "9788610026962",
+        "publisher": "Vulkan izdavaštvo",
+        "year": 2019,
+        "price": 551.01,
+        "genre": "Domaći klasici",
+        "pages": 272,
+        "erased": false
     }
 ]

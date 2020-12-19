@@ -34,7 +34,7 @@
       "title": "Večnoj trubi i trbuačima",
       "price" : 2250.00
   }],
-  "expiry": "2020-12-25"
+  "expiry": "2021-1-31"
 },
 {
   "id": 2,
@@ -48,5 +48,5 @@
       "title": "Večnoj kurbli i kurblačima",
       "price" : 2250.00
   }],
-  "expiry": "2020-12-25"
+  "expiry": "2020-12-1"
 }]

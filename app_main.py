@@ -76,8 +76,8 @@ def menu_manager():
             if(book.search()==False):
                 menu_manager()
         elif (option == '3'):
-            print('WIP')
-            menu_manager()
+            if (bundle.sort() == False):
+                menu_manager()
         elif (option == '4'):
             print('WIP')
             menu_manager()
@@ -123,8 +123,8 @@ def menu_seller():
             if(book.search()==False):
                 menu_seller()
         elif (option == '3'):
-            print('WIP')
-            menu_seller()
+            if (bundle.sort() == False):
+                menu_seller()
         elif (option == '4'):
             print('WIP')
             menu_seller()
