@@ -1,5 +1,5 @@
 from bundles.bundlelist import load, save
-from prettytable import PrettyTable
+from datetime import date
 from beautifultable import BeautifulTable
 import re
 
@@ -7,7 +7,7 @@ bundles = load()
 #i=0
 n=len(bundles)
 
-key = ['id','articles','expiry']
+key = ['title','author','genre']
 
 def print_articles(bundle):
     string=''
@@ -34,15 +34,17 @@ def print_prices(bundle):
         i += 1
     return string
 
-def table_create(bundles):
+def table_create(bundles, show_valid):
     table = BeautifulTable()
     for bundle in bundles:
-        table.rows.append([bundle['id'], bundle['expiry'], print_articles(bundle), print_prices(bundle)])
+        if(bundle['expiry']>str(date.today()) or show_valid == False):
+            table.rows.append([bundle['id'], bundle['expiry'], print_articles(bundle), print_prices(bundle)])
     table.columns.header = ["ID", "Valid until\n(inclusive)", "Articles", "New Prices"]
     return table
 
 def sort():
-    table = table_create(bundles)
+    show_valid = True
+    table = table_create(bundles, show_valid)
     while True:
         print('\nSort by:')
         print('1. ID')
@@ -59,3 +61,51 @@ def sort():
             return False
         else: print('Invalid option, try again...')
     print(table)
+
+def search():
+    print('\nSearch by:')
+    print('1. ID')
+    print('2. Title')
+    print('3. Author')
+    print('4. Genre')
+    print('5. Back')
+    option = input('Select an option:')
+    if (option == '2' or option == '3' or option == '4'):
+        term = input('Search:')
+        notes = []
+        for bundle in bundles:
+            if (option == '2'):
+                i = 0
+            elif (option == '3'):
+                i = 1
+            elif (option == '4'):
+                i = 2
+            for article in bundle['articles']:
+                result = re.search(term.lower(), str(article[key[i]]).lower())
+                if (result != None):
+                    notes.append(bundle)
+                    break
+        show_valid = False
+        table = table_create(notes, show_valid)
+        print(table)
+        search()
+    elif (option == '1'):
+        notes = []
+        while True:
+            try:
+                term = int(input('\nSearch:'))
+                break
+            except ValueError:
+                print('Please input whole numbers only...')
+        for bundle in bundles:
+            result = re.search(str(term).lower(), str(bundle['id']).lower())
+            if (result!=None):
+                notes.append(bundle)
+        table = table_create(notes)
+        print(table)
+        search()
+    elif (option == '5'):
+        return False
+    else:
+        print('Invalid option, try again...')
+        if (search() == False): return False

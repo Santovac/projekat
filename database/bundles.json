@@ -3,16 +3,22 @@
   "articles": [{
       "id":"350270",
       "title": "Muzika kao sudbina",
+      "author": "Zora Bokšan Tanurdžić",
+      "genre": "Muzika",
       "price" : 700.00
   },
   {
       "id":"343896",
       "title": "Moj prijatelj klavir",
+      "author": "Dušan Trbojević",
+      "genre": "Muzika",
       "price" : 799.00
   },
   {
       "id":"350179",
       "title": "Večnoj trubi i trbuačima",
+      "author": "Dejan Tomić",
+      "genre": "Muzika",
       "price" : 2250.00
   }],
   "expiry": "2020-12-25"
@@ -22,16 +28,22 @@
   "articles": [{
       "id":"350270",
       "title": "Muzika kao sudbina",
+      "author": "Zora Bokšan Tanurdžić",
+      "genre": "Muzika",
       "price" : 700.00
   },
   {
       "id":"343896",
       "title": "Moj prijatelj klavir",
+      "author": "Dušan Trbojević",
+      "genre": "Muzika",
       "price" : 799.00
   },
   {
       "id":"350179",
       "title": "Večnoj trubi i trbuačima",
+      "author": "Dejan Tomić",
+      "genre": "Muzika",
       "price" : 2250.00
   }],
   "expiry": "2021-1-31"
@@ -41,11 +53,15 @@
   "articles": [{
       "id":"350270",
       "title": "Muzika kao sudbina",
+      "author": "Zora Bokšan Tanurdžić",
+      "genre": "Muzika",
       "price" : 700.00
   },
   {
       "id":"350179",
       "title": "Večnoj kurbli i kurblačima",
+      "author": "Dejan Tomić",
+      "genre": "Muzika",
       "price" : 2250.00
   }],
   "expiry": "2020-12-1"

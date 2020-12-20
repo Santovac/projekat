@@ -28,8 +28,8 @@ def menu_administrator():
             if (bundle.sort() == False):
                 menu_administrator()
         elif (option == '4'):
-            print('WIP')
-            menu_administrator()
+            if (bundle.search() == False):
+                menu_administrator()
         elif (option == '5'):
             if(user.admin_register()==False):
                 menu_administrator()
@@ -79,8 +79,8 @@ def menu_manager():
             if (bundle.sort() == False):
                 menu_manager()
         elif (option == '4'):
-            print('WIP')
-            menu_manager()
+            if (bundle.search() == False):
+                menu_manager()
         elif (option == '5'):
             if(user.manager_register()==False):
                 menu_manager()
@@ -126,8 +126,8 @@ def menu_seller():
             if (bundle.sort() == False):
                 menu_seller()
         elif (option == '4'):
-            print('WIP')
-            menu_seller()
+            if (bundle.search() == False):
+                menu_seller()
         elif (option == '5'):
             print('WIP')
             menu_seller()
