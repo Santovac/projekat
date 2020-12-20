@@ -112,41 +112,28 @@ def search():
 
 
 def register():
+    new_bundle = {
+        "id": "350497",
+        "articles": [{
+            "id": "350270",
+            "title": "Muzika kao sudbina",
+            "author": "Zora Bokšan Tanurdžić",
+            "genre": "Muzika",
+            "price" : 700.00
+  }],
+        "expiry": "2020-1-1"
+    }
     for bundle in bundles:
         id = bundle['id']
     id+=1
-    title = input('Title:')
-    author = input('Author:')
-    isbn = input('ISBN:')
-    publisher = input('Publisher:')
-    year = int(input('Year:'))
-    price = float(input('Price:'))
-    genre = input('Genre:')
-    pages = int(input('Pages:'))
-    new_book = {
-        "id": "350497",
-        "title": "Medvedgrad",
-        "author": "Fredrik Bakman",
-        "isbn": "9788652139743",
-        "publisher": "Laguna",
-        "year": 2016,
-        "price": 899.00,
-        "genre": "Roman",
-        "pages": 447,
-        "erased": False
-    }
-    new_book['id']= id
-    new_book['title'] = title
-    new_book['author'] = author
-    new_book['isbn'] = isbn
-    new_book['publisher']= publisher
-    new_book['year'] = year
-    new_book['price'] = price
-    new_book['genre'] = genre
-    new_book['pages']= pages
-    new_book['erased']= False
+    while True:
+        #BOOKS INPUT
+        break
 
-    books.append(new_book)
-    save(books)
+    new_bundle['id']= id
+    new_bundle['expiry']= False
+
+    bundles.append(new_bundle)
+    #save(bundles)
     print('%s has been added to the book database. Book ID=[%s]' %(new_book['title'], new_book['id']))
     return False

@@ -298,5 +298,17 @@
         "genre": "Domaći klasici",
         "pages": 272,
         "erased": false
+    },
+    {
+        "id": "1312",
+        "title": "ACAB",
+        "author": "S",
+        "isbn": "21000",
+        "publisher": "Ulice",
+        "year": 2002,
+        "price": 3500.0,
+        "genre": "Politika",
+        "pages": 333,
+        "erased": false
     }
 ]

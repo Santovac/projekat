@@ -238,10 +238,22 @@ def register():
     author = input('Author:')
     isbn = input('ISBN:')
     publisher = input('Publisher:')
-    year = int(input('Year:'))
-    price = float(input('Price:'))
+    while True:
+        try:
+            year = int(input('Year:'))
+            break
+        except ValueError: print('Invalid input, try again...')
+    while True:
+        try:
+            price = float(input('Price:'))
+            break
+        except ValueError: print('Invalid input, try again...')
     genre = input('Genre:')
-    pages = int(input('Pages:'))
+    while True:
+        try:
+            pages = int(input('Pages:'))
+            break
+        except ValueError: print('Invalid input, try again...')
     new_book = {
         "id": "350497",
         "title": "Medvedgrad",
@@ -264,8 +276,19 @@ def register():
     new_book['genre'] = genre
     new_book['pages']= pages
     new_book['erased']= False
-
-    books.append(new_book)
+    print('\nBook will be added to the database:')
+    new_books = [new_book]
+    list(new_books)
+    while True:
+        print('\nDo you wish to proceed?\n1. Yes\n2. Cancel')
+        option = input('Input:')
+        if (option == '1'):
+            books.append(new_book)
+            break
+        elif (option == '2'):
+            return False
+        else:
+            print('Invalid option selected, try again...')
     save(books)
     print('%s has been added to the book database. Book ID=[%s]' %(new_book['title'], new_book['id']))
     return False
