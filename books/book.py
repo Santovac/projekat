@@ -317,18 +317,18 @@ def edit():
     if (publisher == ''):
         publisher = books[i]['publisher']
     try:
-        year = int(input('Overwrite year (blank string will not overwrite this information):'))
+        year = int(input('Overwrite year (blank string or incorrect input will not overwrite this information):'))
     except ValueError:
         year = books[i]['year']
     try:
-        price = float(input('Overwrite price (blank string will not overwrite this information):'))
+        price = float(input('Overwrite price (blank string or incorrect input will not overwrite this information):'))
     except ValueError:
         price = books[i]['price']
     genre = input('Overwrite genre (blank string will not overwrite this information):')
     if (genre == ''):
         genre = books[i]['genre']
     try:
-        pages = int(input('Overwrite pages (blank string will not overwrite this information):'))
+        pages = int(input('Overwrite pages (blank string or incorrect input will not overwrite this information):'))
     except ValueError:
         pages = books[i]['pages']
     erased=books[i]['erased']
