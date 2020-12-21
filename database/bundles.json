@@ -1,68 +1,128 @@
-[{
-  "id": 1,
-  "articles": [{
-      "id":"350270",
-      "title": "Muzika kao sudbina",
-      "author": "Zora Bokšan Tanurdžić",
-      "genre": "Muzika",
-      "price" : 700.00
-  },
-  {
-      "id":"343896",
-      "title": "Moj prijatelj klavir",
-      "author": "Dušan Trbojević",
-      "genre": "Muzika",
-      "price" : 799.00
-  },
-  {
-      "id":"350179",
-      "title": "Večnoj trubi i trbuačima",
-      "author": "Dejan Tomić",
-      "genre": "Muzika",
-      "price" : 2250.00
-  }],
-  "expiry": "2020-12-25"
-},
-{
-  "id": 3,
-  "articles": [{
-      "id":"350270",
-      "title": "Muzika kao sudbina",
-      "author": "Zora Bokšan Tanurdžić",
-      "genre": "Muzika",
-      "price" : 700.00
-  },
-  {
-      "id":"343896",
-      "title": "Moj prijatelj klavir",
-      "author": "Dušan Trbojević",
-      "genre": "Muzika",
-      "price" : 799.00
-  },
-  {
-      "id":"350179",
-      "title": "Večnoj trubi i trbuačima",
-      "author": "Dejan Tomić",
-      "genre": "Muzika",
-      "price" : 2250.00
-  }],
-  "expiry": "2021-1-31"
-},
-{
-  "id": 2,
-  "articles": [{
-      "id":"350270",
-      "title": "Muzika kao sudbina",
-      "author": "Zora Bokšan Tanurdžić",
-      "genre": "Muzika",
-      "price" : 700.00
-  },
-  {
-      "id":"350179",
-      "title": "Večnoj kurbli i kurblačima",
-      "author": "Dejan Tomić",
-      "genre": "Muzika",
-      "price" : 2250.00
-  }],
-  "expiry": "2020-12-1"
-}]
+[
+    {
+        "id": 1,
+        "articles": [
+            {
+                "id": "350270",
+                "title": "Muzika kao sudbina",
+                "author": "Zora Bokšan Tanurdžić",
+                "isbn": "9788661951688",
+                "publisher": "RTS",
+                "year": 2020,
+                "price": 770.0,
+                "genre": "Muzika",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "343896",
+                "title": "Moj prijatelj klavir",
+                "author": "Dušan Trbojević",
+                "isbn": "9788687099036",
+                "publisher": "Studio Lirica",
+                "year": 2019,
+                "price": 899.0,
+                "genre": "Muzika",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "350179",
+                "title": "Večnoj trubi i trbuačima",
+                "author": "Dejan Tomić",
+                "isbn": "9788651516903",
+                "publisher": "Prometej",
+                "year": 2020,
+                "price": 2500.0,
+                "genre": "Muzika",
+                "pages": 447,
+                "erased": false
+            }
+        ],
+        "expiry": "2020-12-25"
+    },
+    {
+        "id": 2,
+        "articles": [
+            {
+                "id": "348277",
+                "title": "Sveti krov",
+                "author": "Alek Vukadinović",
+                "isbn": "9788683487127",
+                "publisher": "Istočnik",
+                "year": 2002,
+                "price": 330.0,
+                "genre": "Poezija",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "349198",
+                "title": "Solo el viento",
+                "author": "Dejan Aleksić",
+                "isbn": "9788660360696",
+                "publisher": "Kontrast",
+                "year": 2020,
+                "price": 699.0,
+                "genre": "Poezija",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "350403",
+                "title": "25 dana",
+                "author": "Anamarija Tenđera",
+                "isbn": "9788663172142",
+                "publisher": "Nova poetika",
+                "year": 2020,
+                "price": 880.0,
+                "genre": "Poezija",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "350256",
+                "title": "Gde kad",
+                "author": "Aleksandar Vedenski",
+                "isbn": "9788660400194",
+                "publisher": "Logos",
+                "year": 2020,
+                "price": 1320.0,
+                "genre": "Poezija",
+                "pages": 447,
+                "erased": false
+            }
+        ],
+        "expiry": "2021-1-31"
+    },
+    {
+        "id": 3,
+        "articles": [
+            {
+                "id": "350857",
+                "title": "Arhipelag mržnje",
+                "author": "Nebojša Petrović",
+                "isbn": "9788651926030",
+                "publisher": "Službeni glasnik",
+                "year": 2020,
+                "price": 1289.99,
+                "genre": "Istorija",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "351105",
+                "title": "Kad govori mrtav kralj",
+                "author": "Ivan Miladinović",
+                "isbn": "9788662930897",
+                "publisher": "Jasen",
+                "year": 2019,
+                "price": 439.99,
+                "genre": "Istorija",
+                "pages": 447,
+                "erased": false
+            }
+        ],
+        "expiry": "2021-02-28"
+    }
+]

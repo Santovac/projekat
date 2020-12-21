@@ -88,8 +88,8 @@ def menu_manager():
             if(user.sort()==False):
                 menu_manager()
         elif (option == '7'):
-            print('WIP')
-            menu_manager()
+            if (bundle.register() == False):
+                menu_manager()
         elif (option == '8'):
             print('WIP')
             menu_manager()

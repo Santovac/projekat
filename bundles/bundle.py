@@ -1,6 +1,7 @@
 from bundles.bundlelist import load, save
 from datetime import date
 from beautifultable import BeautifulTable
+from books import book
 import re
 
 bundles = load()
@@ -63,6 +64,7 @@ def sort():
     print(table)
 
 def search():
+    show_valid = False
     print('\nSearch by:')
     print('1. ID')
     print('2. Title')
@@ -85,7 +87,6 @@ def search():
                 if (result != None):
                     notes.append(bundle)
                     break
-        show_valid = False
         table = table_create(notes, show_valid)
         print(table)
         search()
@@ -101,7 +102,7 @@ def search():
             result = re.search(str(term).lower(), str(bundle['id']).lower())
             if (result!=None):
                 notes.append(bundle)
-        table = table_create(notes)
+        table = table_create(notes, show_valid)
         print(table)
         search()
     elif (option == '5'):
@@ -115,25 +116,105 @@ def register():
     new_bundle = {
         "id": "350497",
         "articles": [{
-            "id": "350270",
-            "title": "Muzika kao sudbina",
-            "author": "Zora Bokšan Tanurdžić",
-            "genre": "Muzika",
-            "price" : 700.00
-  }],
+            "id": "350256",
+            "title": "Gde kad",
+            "author": "Aleksandar Vedenski",
+            "isbn": "9788660400194",
+            "publisher": "Logos",
+            "year": 2020,
+            "price": 1320.0,
+            "genre": "Poezija",
+            "pages": 447,
+            "erased": False
+        }],
         "expiry": "2020-1-1"
     }
     for bundle in bundles:
         id = bundle['id']
     id+=1
-    while True:
-        #BOOKS INPUT
-        break
-
     new_bundle['id']= id
-    new_bundle['expiry']= False
+    bundle_books = []
+    while True:
+        prompt = 0
+        breaker=0
+        id = input("Book ID (input 'back' to return to the main menu):")
+        if(book.find(id)!=None and id!=''):
+            book1 = book.find(id)
+            print('Book found.')
+            prompt=1
+            print('Book will be added to the bundle:')
+            books = [book1]
+            book.permissions('a')
+            book.list(books)
+            book.permissions('m')
+            while True:
+                print('\nDo you wish to proceed?\n1. Yes\n2. Cancel')
+                option = input('Input:')
+                if (option == '1'):
+                    while True:
+                        try:
+                            price = float(input('New price for the book:'))
+                            book1['price'] = price
+                            break
+                        except ValueError: print('Invalid input, try again...')
+                    bundle_books.append(book1)
+                    break
+                elif (option == '2'):
+                    prompt=0
+                    id='a'
+                    break
+                else:
+                    print('Invalid option selected, try again...')
+        elif(id=='back'): return False
+        else: print('Invalid id, try again...')
+        if(prompt==1):
+            while True:
+                print('\nDo you wish to add another book to the bundle?\n1. Yes\n2. No')
+                option = input('Input:')
+                if (option == '1'):
+                    break
+                elif (option == '2'):
+                    breaker=1
+                    break
+                else:
+                    print('Invalid option selected, try again...')
+            if(breaker==1 and bundle_books!=[]): break
+    new_bundle['articles']=bundle_books
 
-    bundles.append(new_bundle)
-    #save(bundles)
-    print('%s has been added to the book database. Book ID=[%s]' %(new_book['title'], new_book['id']))
+    while True:
+        try:
+            year = int(input('Expiry date year:'))
+            expiry = date(year, 1, 1)
+            break
+        except ValueError: print('Invalid input, try again...')
+    while True:
+        try:
+            month = int(input('Month:'))
+            expiry = date(year, month, 1)
+            break
+        except ValueError: print('Invalid input, try again...')
+    while True:
+        try:
+            day = int(input('Day:'))
+            expiry = date(year, month, day)
+            break
+        except ValueError: print('Invalid input, try again...')
+    new_bundle['expiry']= str(expiry)
+    print('\nBundle will be added to the database:')
+    new_bundles = [new_bundle]
+    show_valid = False
+    table = table_create(new_bundles, show_valid)
+    print(table)
+    while True:
+        print('\nDo you wish to proceed?\n1. Yes\n2. Cancel')
+        option = input('Input:')
+        if (option == '1'):
+            bundles.append(new_bundle)
+            break
+        elif (option == '2'):
+            return False
+        else:
+            print('Invalid option selected, try again...')
+    save(bundles)
+    print('Bundle has been added to the database. Bundle ID=[%s]' %(new_bundle['id']))
     return False

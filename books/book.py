@@ -26,7 +26,7 @@ def length_list():
         length[i]=max
 
 #RESPONSIVE TABLE
-def list(bookslist):
+def list(booklist):
     length_list()
     print('\nID', end="")
     for i in range(length[0]+1):
@@ -54,7 +54,7 @@ def list(bookslist):
         print(' ', end="")
     print('Pages', end="\n")
     print('')
-    for book in bookslist:
+    for book in booklist:
         if(type=='a' or book['erased']== False ):
             print(book['id'], end="")
             for i in range(length[0]+3-len(str(book['id']))):
@@ -161,7 +161,12 @@ def sort():
             books.sort(key=lambda books:books.get('price'))
     list(books)
 
-
+def find(term):
+    for book in books:
+        result = re.search(term.lower(), str(book['id']).lower())
+        if(result!=None):
+            return book
+    return None
 
 def search():
 

@@ -48,6 +48,18 @@
         "erased": false
     },
     {
+        "id": "335496",
+        "title": "Nečista krv",
+        "author": "Borislav Stanković",
+        "isbn": "9788610026962",
+        "publisher": "Vulkan izdavaštvo",
+        "year": 2019,
+        "price": 551.01,
+        "genre": "Domaći klasici",
+        "pages": 272,
+        "erased": false
+    },
+    {
         "id": "2280",
         "title": "DOOM",
         "author": "S",
@@ -276,30 +288,6 @@
         "erased": false
     },
     {
-        "id": "350248",
-        "title": "Formula kosmosa",
-        "author": "Pavel Filonov",
-        "isbn": "9788660400200",
-        "publisher": "Logos",
-        "year": 2020,
-        "price": 3850.0,
-        "genre": "Opšta umetnost",
-        "pages": 447,
-        "erased": false
-    },
-    {
-        "id": "335496",
-        "title": "Nečista krv",
-        "author": "Borislav Stanković",
-        "isbn": "9788610026962",
-        "publisher": "Vulkan izdavaštvo",
-        "year": 2019,
-        "price": 551.01,
-        "genre": "Domaći klasici",
-        "pages": 272,
-        "erased": false
-    },
-    {
         "id": "1312",
         "title": "ACAB",
         "author": "S",
@@ -309,6 +297,18 @@
         "price": 3500.0,
         "genre": "Politika",
         "pages": 333,
+        "erased": true
+    },
+    {
+        "id": "350248",
+        "title": "Formula kosmosa",
+        "author": "Pavel Filonov",
+        "isbn": "9788660400200",
+        "publisher": "Logos",
+        "year": 2020,
+        "price": 3850.0,
+        "genre": "Opšta umetnost",
+        "pages": 447,
         "erased": false
     }
 ]
