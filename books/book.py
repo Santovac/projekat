@@ -8,13 +8,11 @@ def permissions(rights):
     type=rights
 
 books = load()
-#i=0
 n=len(books)
 
 length = [1,1,1,1,1,1,1,1,1]
 
 key = ['id','title','author','isbn','publisher','year','price','genre','pages']
-
 
 def length_list():
     max='1'
