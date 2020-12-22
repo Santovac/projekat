@@ -11,7 +11,7 @@ books = load()
 n=len(books)
 
 length = [1,1,1,1,1,1,1,1,1]
-
+cart = []
 key = ['id','title','author','isbn','publisher','year','price','genre','pages']
 
 def length_list():
@@ -446,3 +446,86 @@ def erase():
 
     print('%s has been erased in the book database. Book ID=[%s]' % (del_book['title'], del_book['id']))
     return False
+
+def sell():
+    global cart
+    cart=[]
+    if(sell_menu()==False): return False
+
+def sell_menu():
+    global cart
+    while True:
+        print('\nSell:')
+        print('1. Books')
+        print('2. Bundles')
+        print('3. Complete transaction')
+        print('4. Exit to main menu (empty the cart)')
+        option = input('Select an option:')
+        if (option == '1'):
+            if(sell_book()==True):
+                print('Shopping cart successfully updated:')
+                list(cart)
+            else:
+                print('Shopping cart was not updated:')
+                list(cart)
+                if(sell_menu()==False):
+                    return False
+        elif (option == '2'):
+            print('WIP')
+        elif (option == '3'):
+            print('WIP')
+        elif (option == '4'):
+            return False
+        else:
+            print('Invalid option, try again...')
+
+def sell_book():
+    global cart
+    z = -1
+    i = 0
+    while True:
+        id = input("\nID (input 'back' to return to the shopping menu):")
+        if (id == 'back'):
+            return False
+        elif (id != ''):
+            result = re.search(' ', id)
+            if (result == None):
+                break
+            else:
+                print("ID cannot contain spaces, try again...")
+                if (sell_book() == False):
+                    return False
+        else:
+            print("ID cannot be blank, try again...")
+            if (sell_book() == False):
+                return False
+    for book in books:
+        if (book['id'] == id and book['erased']==False):
+            print('Book found.')
+            z = i
+            break
+        i += 1
+    if (z == -1):
+        print('Book not found, try again...')
+        if (sell_book() == False):
+            return False
+    cart_item=[]
+    while True:
+        try:
+            q = int(input('Quantity:'))
+            break
+        except ValueError: print('Input whole numbers only...')
+    print('Item(s) will be added to the cart:')
+    for i in range(q):
+        cart_item+= [books[z]]
+    list(cart_item)
+    while True:
+        print('\nDo you wish to proceed?\n1. Yes\n2. Cancel')
+        option = input('Input:')
+        if (option == '1'):
+            cart += cart_item
+            return True
+        elif (option == '2'):
+            return False
+        else:
+            print('Invalid option selected, try again...')

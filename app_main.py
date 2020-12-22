@@ -129,8 +129,8 @@ def menu_seller():
             if (bundle.search() == False):
                 menu_seller()
         elif (option == '5'):
-            print('WIP')
-            menu_seller()
+            if (book.sell() == False):
+                menu_seller()
         elif (option == '6'):
             if(book.register()==False):
                 menu_seller()
