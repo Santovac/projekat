@@ -1,11 +1,78 @@
-[{
-  "id": ,
-  "seller": "",
-  "date_time": "",
-  "articles": [{
-    "id": "",
-    "quantity" : "",
-    "price" : ""
-  }],
-  "total":
-}]
+[
+    {
+        "id": 0,
+        "seller": "S",
+        "date_time": "2020-12-24T18:16:25.925653",
+        "articles": [
+            {
+                "id": "N/A",
+                "title": "N/A",
+                "author": "N/A",
+                "isbn": "N/A",
+                "publisher": "N/A",
+                "year": 2020,
+                "price": 0.0,
+                "genre": "N/A",
+                "pages": 0,
+                "erased": false
+            }
+        ],
+        "total": 0.0
+    },
+    {
+        "id": 1,
+        "seller": "lilbaby_1",
+        "date_time": "2020-12-24T19:58:13.735556",
+        "articles": [
+            {
+                "id": "350857",
+                "title": "Arhipelag mržnje",
+                "author": "Nebojša Petrović",
+                "isbn": "9788651926030",
+                "publisher": "Službeni glasnik",
+                "year": 2020,
+                "price": 1289.99,
+                "genre": "Istorija",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "351105",
+                "title": "Kad govori mrtav kralj",
+                "author": "Ivan Miladinović",
+                "isbn": "9788662930897",
+                "publisher": "Jasen",
+                "year": 2019,
+                "price": 439.99,
+                "genre": "Istorija",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "350520",
+                "title": "Pelerina",
+                "author": "Radivoj Šajtinac",
+                "isbn": "9788661453571",
+                "publisher": "Geopoetika",
+                "year": 2020,
+                "price": 682.0,
+                "genre": "Domaći roman",
+                "pages": 96,
+                "erased": false
+            },
+            {
+                "id": "350520",
+                "title": "Pelerina",
+                "author": "Radivoj Šajtinac",
+                "isbn": "9788661453571",
+                "publisher": "Geopoetika",
+                "year": 2020,
+                "price": 682.0,
+                "genre": "Domaći roman",
+                "pages": 96,
+                "erased": false
+            }
+        ],
+        "total": 3093.98
+    }
+]

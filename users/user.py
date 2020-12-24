@@ -3,9 +3,10 @@ import re,getpass
 
 users = load()
 n=len(users)
+username=''
 
 def login():
-
+    global username
     print("\n/Project BOOKS by Santovac Stefan/\nCoded for 1920x1080 resolution at 100% font size\nInput 'exit()' as username to exit the program.")
     print('\n-Login-')
     username = input('Username:')
@@ -15,9 +16,12 @@ def login():
     #print(users) debug
     for user in users:
         if((user['username']==username) and (user['password']==password)):
+            username=user['username']
             return user
     return False
 
+def get_username():
+    return username
 
 length = [1,1,1,1,1]
 

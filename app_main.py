@@ -109,7 +109,7 @@ def menu_seller():
         print('2. Search books')
         print('3. List all bundles')
         print('4. Search bundles')
-        print('5. Sell a book')
+        print('5. Sell books')
         print('6. Add a book')
         print('7. Edit a book')
         print('8. Erase a book (Logical deletion)')
@@ -155,7 +155,6 @@ def main():
             print('Too many unsuccessful login attempts. Program shutting down...')
             exit()
         user1 = user.login()
-        #print(user)
         if(user1!=False):
             print('Login successful. Account type:', user1['type'])
             if(user1['type']=='Administrator'):

@@ -5,7 +5,6 @@ from books import book
 import re
 
 bundles = load()
-#i=0
 n=len(bundles)
 
 key = ['title','author','genre']
@@ -37,9 +36,10 @@ def print_prices(bundle):
 
 def table_create(bundles, show_valid):
     table = BeautifulTable()
+    table.maxwidth=300
     for bundle in bundles:
         if(bundle['expiry']>str(date.today()) or show_valid == False):
-            table.rows.append([bundle['id'], bundle['expiry'], print_articles(bundle), print_prices(bundle)])
+            table.rows.append([bundles['id'], bundles['expiry'], print_articles(bundles), print_prices(bundles)])
     table.columns.header = ["ID", "Valid until\n(inclusive)", "Articles", "New Prices"]
     return table
 

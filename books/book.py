@@ -1,4 +1,9 @@
 from books.booklist import load, save
+from bundles import bundle
+from datetime import date, datetime
+from users import user
+from receipts import receiptlist
+from receipts import receipt as mreceipt
 import re
 
 type='neutral'
@@ -7,25 +12,29 @@ def permissions(rights):
     global type
     type=rights
 
+bundles=bundle.load()
 books = load()
 n=len(books)
 
 length = [1,1,1,1,1,1,1,1,1]
 cart = []
+total = 0.0
 key = ['id','title','author','isbn','publisher','year','price','genre','pages']
 
-def length_list():
+def length_list(books):
     max='1'
+    n=len(books)
     for i in range(9):
         max = len(str(books[0][key[i]]))
         for j in range(n-1):
             if (max < len(str(books[j + 1][key[i]]))):
                 max = len(str(books[j + 1][key[i]]))
         length[i]=max
+    return length
 
 #RESPONSIVE TABLE
 def list(booklist):
-    length_list()
+    length = length_list(booklist)
     print('\nID', end="")
     for i in range(length[0]+1):
         print(' ', end="")
@@ -447,38 +456,6 @@ def erase():
     print('%s has been erased in the book database. Book ID=[%s]' % (del_book['title'], del_book['id']))
     return False
 
-def sell():
-    global cart
-    cart=[]
-    if(sell_menu()==False): return False
-
-def sell_menu():
-    global cart
-    while True:
-        print('\nSell:')
-        print('1. Books')
-        print('2. Bundles')
-        print('3. Complete transaction')
-        print('4. Exit to main menu (empty the cart)')
-        option = input('Select an option:')
-        if (option == '1'):
-            if(sell_book()==True):
-                print('Shopping cart successfully updated:')
-                list(cart)
-            else:
-                print('Shopping cart was not updated:')
-                list(cart)
-                if(sell_menu()==False):
-                    return False
-        elif (option == '2'):
-            print('WIP')
-        elif (option == '3'):
-            print('WIP')
-        elif (option == '4'):
-            return False
-        else:
-            print('Invalid option, try again...')
-
 def sell_book():
     global cart
     z = -1
@@ -529,3 +506,147 @@ def sell_book():
             return False
         else:
             print('Invalid option selected, try again...')
+
+def sell_bundle():
+    global cart
+    z = -1
+    i = 0
+    while True:
+        id = input("\nID (input 'back' to return to the shopping menu):")
+        if (id == 'back'):
+            return False
+        elif (id != ''):
+            result = re.search(' ', id)
+            if (result == None):
+                break
+            else:
+                print("ID cannot contain spaces, try again...")
+                if (sell_bundle() == False):
+                    return False
+        else:
+            print("ID cannot be blank, try again...")
+            if (sell_bundle() == False):
+                return False
+    for bundle in bundles:
+        if (str(bundle['id']) == id and bundle['expiry']>str(date.today())):
+            print('Bundle found.')
+            z = i
+            break
+        i += 1
+    if (z == -1):
+        print('Bundle not found, try again...')
+        if (sell_bundle() == False):
+            return False
+    cart_item=[]
+    print('Item(s) will be added to the cart:')
+    n=len(bundles[z]['articles'])
+    for i in range(n):
+        cart_item+= [bundles[z]['articles'][i]]
+    list(cart_item)
+    while True:
+        print('\nDo you wish to proceed?\n1. Yes\n2. Cancel')
+        option = input('Input:')
+        if (option == '1'):
+            cart += cart_item
+            return True
+        elif (option == '2'):
+            return False
+        else:
+            print('Invalid option selected, try again...')
+
+def receipt_create():
+    global total
+    receipt = {
+        "id": 0,
+        "seller": "S",
+        "date_time": "2020-12-24T18:16:25.925653",
+        "articles": [
+            {
+                "id": "N/A",
+                "title": "N/A",
+                "author": "N/A",
+                "isbn": "N/A",
+                "publisher": "N/A",
+                "year": 2020,
+                "price": 0.0,
+                "genre": "N/A",
+                "pages": 0,
+                "erased": False
+            }
+        ],
+        "total": 0.0
+    }
+    old_receipts = receiptlist.load()
+    z=0
+    for receipt in old_receipts:
+        z+=1
+    receipt['id'] = z
+    receipt['seller'] = user.get_username()
+    receipt['date_time'] = datetime.now().isoformat()
+    receipt['articles'] = cart
+    receipt['total'] = total
+    return receipt
+
+def sell_complete():
+    receipts = receiptlist.load()
+    receipt = receipt_create()
+    print('\nFollowing book(s) will be sold:')
+    list(cart)
+    while True:
+        print('\nDo you wish to proceed?\n1. Yes\n2. Cancel')
+        option = input('Input:')
+        if (option == '1'):
+            receipts.append(receipt)
+            break
+        elif (option == '2'):
+            return False
+        else:
+            print('Invalid option selected, try again...')
+    receiptlist.save(receipts)
+    print('Books have been sold. Receipt:')
+    mreceipt.print_table(receipt)
+    return False
+
+def sell_menu():
+    global cart
+    global total
+    while True:
+        total = 0.0
+        for item in cart:
+            total += item['price']
+        print('\nSell:')
+        print('1. Books')
+        print('2. Bundles')
+        print('3. Show cart')
+        print('4. Complete transaction')
+        print('5. Exit to main menu (empty the cart)')
+        option = input('Select an option:')
+        if (option == '1'):
+            if(sell_book()==True):
+                print('Shopping cart successfully updated:')
+            else:
+                print('Shopping cart was not updated:')
+                if(sell_menu()==False):
+                    return False
+        elif (option == '2'):
+            if (sell_bundle() == True):
+                print('Shopping cart successfully updated:')
+            else:
+                print('Shopping cart was not updated:')
+                if (sell_menu() == False):
+                    return False
+        elif (option == '3'):
+            list(cart)
+            print('\nTotal:', total)
+        elif (option == '4'):
+            if (sell_complete() == False):
+                return False
+        elif (option == '5'):
+            return False
+        else:
+            print('Invalid option, try again...')
+
+def sell():
+    global cart
+    cart=[]
+    if(sell_menu()==False): return False

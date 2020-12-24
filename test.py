@@ -1,6 +1,12 @@
-from datetime import date
+from datetime import date,datetime
 import json
 
+now = datetime.now().isoformat()
+print('DATETIME:', now)
+print('DATE:', date.today())
+print('DATETIME:', datetime.fromisoformat(now))
+
+'''
 path = 'database/json_test.json'
 
 def load():
@@ -30,7 +36,7 @@ test[2]['expiry'] = z.isoformat()
 save(test)
 #test = load()
 #print('after changes: ',test)
-
+'''
 
 
 '''
