@@ -9,7 +9,7 @@
                 "isbn": "9788661951688",
                 "publisher": "RTS",
                 "year": 2020,
-                "price": 770.0,
+                "price": 689.99,
                 "genre": "Muzika",
                 "pages": 447,
                 "erased": false
@@ -21,7 +21,7 @@
                 "isbn": "9788687099036",
                 "publisher": "Studio Lirica",
                 "year": 2019,
-                "price": 899.0,
+                "price": 799.99,
                 "genre": "Muzika",
                 "pages": 447,
                 "erased": false
@@ -33,7 +33,7 @@
                 "isbn": "9788651516903",
                 "publisher": "Prometej",
                 "year": 2020,
-                "price": 2500.0,
+                "price": 2249.99,
                 "genre": "Muzika",
                 "pages": 447,
                 "erased": false
@@ -51,7 +51,7 @@
                 "isbn": "9788683487127",
                 "publisher": "Istočnik",
                 "year": 2002,
-                "price": 330.0,
+                "price": 289.99,
                 "genre": "Poezija",
                 "pages": 447,
                 "erased": false
@@ -63,7 +63,7 @@
                 "isbn": "9788660360696",
                 "publisher": "Kontrast",
                 "year": 2020,
-                "price": 699.0,
+                "price": 619.99,
                 "genre": "Poezija",
                 "pages": 447,
                 "erased": false
@@ -75,7 +75,7 @@
                 "isbn": "9788663172142",
                 "publisher": "Nova poetika",
                 "year": 2020,
-                "price": 880.0,
+                "price": 789.99,
                 "genre": "Poezija",
                 "pages": 447,
                 "erased": false
@@ -87,7 +87,7 @@
                 "isbn": "9788660400194",
                 "publisher": "Logos",
                 "year": 2020,
-                "price": 1320.0,
+                "price": 1189.99,
                 "genre": "Poezija",
                 "pages": 447,
                 "erased": false

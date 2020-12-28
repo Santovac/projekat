@@ -24,6 +24,15 @@ def print_articles(receipt):
                 string+='\n'
         except IndexError: break
         i+=1
+    i = 0
+    for article in receipt['bundles']:
+        string += article['title']
+        try:
+            if (receipt['articles'][i + 1] != None):
+                string += '\n'
+        except IndexError:
+            break
+        i += 1
     return string
 
 def print_prices(receipt):

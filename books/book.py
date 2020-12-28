@@ -17,6 +17,10 @@ books = load()
 n=len(books)
 
 length = [1,1,1,1,1,1,1,1,1]
+cart_keys = {
+    "articles": [],
+    "bundle_books": []
+}
 cart = []
 total = 0.0
 key = ['id','title','author','isbn','publisher','year','price','genre','pages']
@@ -500,7 +504,7 @@ def sell_book():
         print('\nDo you wish to proceed?\n1. Yes\n2. Cancel')
         option = input('Input:')
         if (option == '1'):
-            cart += cart_item
+            cart[0]["articles"] += cart_item
             return True
         elif (option == '2'):
             return False
@@ -547,7 +551,7 @@ def sell_bundle():
         print('\nDo you wish to proceed?\n1. Yes\n2. Cancel')
         option = input('Input:')
         if (option == '1'):
-            cart += cart_item
+            cart[0]["bundle_books"]+= cart_item
             return True
         elif (option == '2'):
             return False
@@ -574,6 +578,20 @@ def receipt_create():
                 "erased": False
             }
         ],
+        "bundle_books": [
+            {
+                "id": "N/A",
+                "title": "N/A",
+                "author": "N/A",
+                "isbn": "N/A",
+                "publisher": "N/A",
+                "year": 2020,
+                "price": 0.0,
+                "genre": "N/A",
+                "pages": 0,
+                "erased": False
+            }
+        ],
         "total": 0.0
     }
     old_receipts = receiptlist.load()
@@ -583,20 +601,27 @@ def receipt_create():
     receipt['id'] = z
     receipt['seller'] = user.get_username()
     receipt['date_time'] = datetime.now().isoformat()
-    receipt['articles'] = cart
+    receipt['articles'] = cart[0]['articles']
+    receipt['bundles'] = cart[0]['bundle_books']
     receipt['total'] = total
     return receipt
 
 def sell_complete():
     receipts = receiptlist.load()
     receipt = receipt_create()
-    print('\nFollowing book(s) will be sold:')
-    list(cart)
+    try:
+        print('\nFollowing book(s) will be sold:')
+        list(cart[0]["articles"])
+    except IndexError: pass
+    try:
+        print('\nFollowing bundle(s) will be sold:')
+        list(cart[0]["bundle_books"])
+    except IndexError: pass
     while True:
         print('\nDo you wish to proceed?\n1. Yes\n2. Cancel')
         option = input('Input:')
         if (option == '1'):
-            receipts.append(receipt)
+            if(total!=0): receipts.append(receipt)
             break
         elif (option == '2'):
             return False
@@ -609,11 +634,14 @@ def sell_complete():
 
 def sell_menu():
     global cart
+
     global total
     while True:
         total = 0.0
-        for item in cart:
-            total += item['price']
+        for item in cart[0]["articles"]:
+            total += item["price"]
+        for item in cart[0]["bundle_books"]:
+            total += item["price"]
         print('\nSell:')
         print('1. Books')
         print('2. Bundles')
@@ -636,8 +664,15 @@ def sell_menu():
                 if (sell_menu() == False):
                     return False
         elif (option == '3'):
-            list(cart)
-            print('\nTotal:', total)
+            try:
+                #print('\nBooks:', cart[0]["articles"])
+                list(cart[0]["articles"])
+            except IndexError: pass
+            try:
+                #print('\nBundle books:', cart[0]["bundle_books"])
+                list(cart[0]["bundle_books"])
+                print('\nTotal:', total)
+            except TypeError or IndexError: pass
         elif (option == '4'):
             if (sell_complete() == False):
                 return False
@@ -648,5 +683,5 @@ def sell_menu():
 
 def sell():
     global cart
-    cart=[]
+    cart=[cart_keys]
     if(sell_menu()==False): return False
