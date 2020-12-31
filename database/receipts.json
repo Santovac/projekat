@@ -1,39 +1,5 @@
 [
     {
-        "id": 0,
-        "seller": "S",
-        "date_time": "2020-12-24T18:16:25.925653",
-        "articles": [
-            {
-                "id": "N/A",
-                "title": "N/A",
-                "author": "N/A",
-                "isbn": "N/A",
-                "publisher": "N/A",
-                "year": 2020,
-                "price": 0.0,
-                "genre": "N/A",
-                "pages": 0,
-                "erased": false
-            }
-        ],
-        "bundles": [
-            {
-                "id": "N/A",
-                "title": "N/A",
-                "author": "N/A",
-                "isbn": "N/A",
-                "publisher": "N/A",
-                "year": 2020,
-                "price": 0.0,
-                "genre": "N/A",
-                "pages": 0,
-                "erased": false
-            }
-        ],
-        "total": 0.0
-    },
-    {
         "id": 1,
         "seller": "lilbaby_1",
         "date_time": "2020-12-28T19:49:37.330946",
@@ -90,5 +56,132 @@
             }
         ],
         "total": 3093.9799999999996
+    },
+    {
+        "id": 2,
+        "seller": "lilbaby_1",
+        "date_time": "2020-12-28T23:09:59.783359",
+        "articles": [],
+        "bundles": [
+            {
+                "id": "350857",
+                "title": "Arhipelag mržnje",
+                "author": "Nebojša Petrović",
+                "isbn": "9788651926030",
+                "publisher": "Službeni glasnik",
+                "year": 2020,
+                "price": 1289.99,
+                "genre": "Istorija",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "351105",
+                "title": "Kad govori mrtav kralj",
+                "author": "Ivan Miladinović",
+                "isbn": "9788662930897",
+                "publisher": "Jasen",
+                "year": 2019,
+                "price": 439.99,
+                "genre": "Istorija",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "350857",
+                "title": "Arhipelag mržnje",
+                "author": "Nebojša Petrović",
+                "isbn": "9788651926030",
+                "publisher": "Službeni glasnik",
+                "year": 2020,
+                "price": 1289.99,
+                "genre": "Istorija",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "351105",
+                "title": "Kad govori mrtav kralj",
+                "author": "Ivan Miladinović",
+                "isbn": "9788662930897",
+                "publisher": "Jasen",
+                "year": 2019,
+                "price": 439.99,
+                "genre": "Istorija",
+                "pages": 447,
+                "erased": false
+            }
+        ],
+        "total": 3459.96
+    },
+    {
+        "id": 3,
+        "seller": "lilbaby_1",
+        "date_time": "2020-12-29T11:21:04.107264",
+        "articles": [
+            {
+                "id": "350520",
+                "title": "Pelerina",
+                "author": "Radivoj Šajtinac",
+                "isbn": "9788661453571",
+                "publisher": "Geopoetika",
+                "year": 2020,
+                "price": 682.0,
+                "genre": "Domaći roman",
+                "pages": 96,
+                "erased": false
+            }
+        ],
+        "bundles": [
+            {
+                "id": "348277",
+                "title": "Sveti krov",
+                "author": "Alek Vukadinović",
+                "isbn": "9788683487127",
+                "publisher": "Istočnik",
+                "year": 2002,
+                "price": 289.99,
+                "genre": "Poezija",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "349198",
+                "title": "Solo el viento",
+                "author": "Dejan Aleksić",
+                "isbn": "9788660360696",
+                "publisher": "Kontrast",
+                "year": 2020,
+                "price": 619.99,
+                "genre": "Poezija",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "350403",
+                "title": "25 dana",
+                "author": "Anamarija Tenđera",
+                "isbn": "9788663172142",
+                "publisher": "Nova poetika",
+                "year": 2020,
+                "price": 789.99,
+                "genre": "Poezija",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "350256",
+                "title": "Gde kad",
+                "author": "Aleksandar Vedenski",
+                "isbn": "9788660400194",
+                "publisher": "Logos",
+                "year": 2020,
+                "price": 1189.99,
+                "genre": "Poezija",
+                "pages": 447,
+                "erased": false
+            }
+        ],
+        "total": 3571.96
     }
 ]

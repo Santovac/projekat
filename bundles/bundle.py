@@ -12,10 +12,10 @@ key = ['title','author','genre']
 def print_articles(bundle):
     string=''
     i=0
-    for article in bundle['articles']:
-        string+=article['title']
+    for article in bundle["articles"]:
+        string+=article["title"]
         try:
-            if(bundle['articles'][i+1]!=None):
+            if(bundle["articles"][i+1]!=None):
                 string+='\n'
         except IndexError: break
         i+=1
@@ -39,7 +39,7 @@ def table_create(bundles, show_valid):
     table.maxwidth=300
     for bundle in bundles:
         if(bundle['expiry']>str(date.today()) or show_valid == False):
-            table.rows.append([bundles['id'], bundles['expiry'], print_articles(bundles), print_prices(bundles)])
+            table.rows.append([bundle["id"], bundle["expiry"], print_articles(bundle), print_prices(bundle)])
     table.columns.header = ["ID", "Valid until\n(inclusive)", "Articles", "New Prices"]
     return table
 

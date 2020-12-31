@@ -1,6 +1,6 @@
 import json
 
-path = './database/receipts.json'
+path = '../database/receipts.json'
 
 def load():
     with open(path, encoding='utf-8') as f:

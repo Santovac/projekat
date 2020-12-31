@@ -17,10 +17,6 @@ books = load()
 n=len(books)
 
 length = [1,1,1,1,1,1,1,1,1]
-cart_keys = {
-    "articles": [],
-    "bundle_books": []
-}
 cart = []
 total = 0.0
 key = ['id','title','author','isbn','publisher','year','price','genre','pages']
@@ -170,6 +166,7 @@ def sort():
         else:
             print("Invalid option selected, ascending mode selected by default.")
             books.sort(key=lambda books:books.get('price'))
+    print(books)
     list(books)
 
 def find(term):
@@ -202,7 +199,8 @@ def search():
             result = re.search(term.lower(), str(book[key[i]]).lower())
             if (result != None):
                 notes.append(book)
-        list(notes)
+        if(notes!=[]): list(notes)
+        else: print('No results found.')
         search()
     elif(option == '6'):
         notes = []
@@ -220,7 +218,9 @@ def search():
         for book in books:
             if(term <= book['price'] and term2 >= book['price']):
                 notes.append(book)
-        list(notes)
+        if(notes!=[]):
+            list(notes)
+        else: print('No results found.')
         search()
     elif(option == '7'):
         return False
@@ -480,6 +480,7 @@ def sell_book():
             print("ID cannot be blank, try again...")
             if (sell_book() == False):
                 return False
+            else: return True
     for book in books:
         if (book['id'] == id and book['erased']==False):
             print('Book found.')
@@ -488,14 +489,17 @@ def sell_book():
         i += 1
     if (z == -1):
         print('Book not found, try again...')
-        if (sell_book() == False):
+        if (sell_book() == False ):
             return False
+        else: return True
     cart_item=[]
     while True:
+        q=-1
         try:
             q = int(input('Quantity:'))
-            break
-        except ValueError: print('Input whole numbers only...')
+        except ValueError: pass
+        if(q>0): break
+        else: print('Invalid input, try again...')
     print('Item(s) will be added to the cart:')
     for i in range(q):
         cart_item+= [books[z]]
@@ -521,26 +525,16 @@ def sell_bundle():
             return False
         elif (id != ''):
             result = re.search(' ', id)
-            if (result == None):
-                break
-            else:
-                print("ID cannot contain spaces, try again...")
-                if (sell_bundle() == False):
-                    return False
-        else:
-            print("ID cannot be blank, try again...")
-            if (sell_bundle() == False):
-                return False
-    for bundle in bundles:
-        if (str(bundle['id']) == id and bundle['expiry']>str(date.today())):
-            print('Bundle found.')
-            z = i
-            break
-        i += 1
-    if (z == -1):
-        print('Bundle not found, try again...')
-        if (sell_bundle() == False):
-            return False
+            i=0
+            for bundle in bundles:
+                if (str(bundle['id']) == id and bundle['expiry'] > str(date.today())):
+                    print('Bundle found.')
+                    z = i
+                    break
+                i += 1
+        if (z == -1):
+            print('Bundle not found or expired, try again...')
+        if(z!=-1): break
     cart_item=[]
     print('Item(s) will be added to the cart:')
     n=len(bundles[z]['articles'])
@@ -624,17 +618,18 @@ def sell_complete():
             if(total!=0): receipts.append(receipt)
             break
         elif (option == '2'):
-            return False
+            return True
         else:
             print('Invalid option selected, try again...')
     receiptlist.save(receipts)
-    print('Books have been sold. Receipt:')
-    mreceipt.print_table(receipt)
+    if(total!=0):
+        print('Books have been sold. Receipt:')
+        mreceipt.print_table(receipt)
+    else: print('Cart was empty, no books were sold.')
     return False
 
 def sell_menu():
     global cart
-
     global total
     while True:
         total = 0.0
@@ -665,17 +660,15 @@ def sell_menu():
                     return False
         elif (option == '3'):
             try:
-                #print('\nBooks:', cart[0]["articles"])
                 list(cart[0]["articles"])
             except IndexError: pass
             try:
-                #print('\nBundle books:', cart[0]["bundle_books"])
                 list(cart[0]["bundle_books"])
-                print('\nTotal:', total)
-            except TypeError or IndexError: pass
+            except IndexError: pass
+            print('\nTotal:', total)
         elif (option == '4'):
-            if (sell_complete() == False):
-                return False
+            if (sell_complete() == True): pass
+            else: return False
         elif (option == '5'):
             return False
         else:
@@ -683,5 +676,9 @@ def sell_menu():
 
 def sell():
     global cart
+    cart_keys = {
+        "articles": [],
+        "bundle_books": []
+    }
     cart=[cart_keys]
     if(sell_menu()==False): return False
