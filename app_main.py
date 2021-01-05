@@ -1,6 +1,7 @@
 from users import user
 from books import book
 from bundles import bundle
+from receipts import receipt
 
 def menu_administrator():
     while True:
@@ -76,10 +77,10 @@ def menu_manager():
             if(book.search()==False):
                 menu_manager()
         elif (option == '3'):
-            if (bundle.sort() == False):
+            if(bundle.sort() == False):
                 menu_manager()
         elif (option == '4'):
-            if (bundle.search() == False):
+            if(bundle.search() == False):
                 menu_manager()
         elif (option == '5'):
             if(user.manager_register()==False):
@@ -88,14 +89,15 @@ def menu_manager():
             if(user.sort()==False):
                 menu_manager()
         elif (option == '7'):
-            if (bundle.register() == False):
+            if(bundle.register() == False):
                 menu_manager()
         elif (option == '8'):
-            print('WIP')
+            if(receipt.account() == False):
+                menu_manager()
             menu_manager()
-        elif(option == '9'):
+        elif (option == '9'):
             main()
-        elif(option == '10'):
+        elif (option == '10'):
             exit()
 
         else: print('Invalid option, try again...')

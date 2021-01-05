@@ -1,21 +1,8 @@
 from beautifultable import BeautifulTable
 from receipts.receiptlist import load
+import re
 
 receipts = load()
-
-'''
-def length_list(books):
-    max='1'
-    length=[]
-    n=len(books)
-    for i in range(9):
-        max = len(str(books[0][key[i]]))
-        for j in range(n-1):
-            if (max < len(str(books[j + 1][key[i]]))):
-                max = len(str(books[j + 1][key[i]]))
-        length[i]=max
-    return length
-'''
 
 def print_articles(receipt):
     string=''
@@ -62,13 +49,7 @@ def print_table(receipt):
     table.columns.header = ["ID", "Seller", "Time", "Articles", "New Prices", "Total"]
     print(table)
 
-def print_table_account(receipts):
-    table = BeautifulTable()
-    table.maxwidth = 300
-    for receipt in receipts:
-        table.rows.append([print_articles(receipt), print_prices(receipt), receipt['total']])
-    table.columns.header = ["ID", "Seller", "Time", "Articles", "New Prices", "Total"]
-    print(table)
+
 
 def all_books():
     #make an array including all books in receipt database
@@ -81,46 +62,67 @@ def all_books():
         if(receipt['bundles']!=[]):
             for article in receipt['bundles']:
                 booklist.append(article)
-    print(booklist)
-
-all_books()
+    return booklist
 
 def all_bundles():
-    #make an array including all books sold through bundles in receipt database
-    pass
+    # make an array including all books sold through bundles in receipt database
+    booklist = []
+    receipts = load()
+    for receipt in receipts:
+        if (receipt['bundles'] != []):
+            for article in receipt['bundles']:
+                booklist.append(article)
+    return booklist
 
 def filter_books(books, key):
     #pass booklist from all_books and filter by chosen filter key, send ret_val to print_accounting_table
-    pass
+    filtered_books=[]
+    term = input('Search:')
+    for book in books:
+        result = re.search(term.lower(), str(book[key]).lower())
+        if(result!=None):
+            filtered_books.append(book)
+    print_table_account(filtered_books)
 
-def print_accounting_table(books):
-    #print table
-    pass
-
+def print_table_account(books):
+    table = BeautifulTable()
+    table.maxwidth = 300
+    current_books=[]
+    for current_book in books:
+        quantity=0
+        book_earnings=0
+        for book in books:
+            if(current_book['title']==book['title']):
+                quantity+=1
+                book_earnings+=book['price']
+        if(current_book not in current_books):  
+            table.rows.append([current_book['title'], quantity, book_earnings])
+            current_books.append(current_book)
+    table.columns.header = ["Title", "Quantity sold", "Total earnings for the book"]
+    print(table)
 
 def account():
     while True:
+        books=all_books()
+        bundles=all_bundles()
         print('\nSell:')
         print('1. All transactions')
         print('2. All books sold through bundles')
         print('3. All books sold by a specific author')
         print('4. All books sold by a specific publisher')
         print('5. All books sold by a specific genre')
-        print('6. Exit to main menu (empty the cart)')
+        print('6. Back')
         option = input('Select an option:')
         if (option == '1'):
-            if(print_table_account(receipts)==True):
-                print('Shopping cart successfully updated:')
+            print_table_account(books)
         elif (option == '2'):
-            if (sell_bundle() == True):
-                print('Shopping cart successfully updated:')
+            print_table_account(bundles)
         elif (option == '3'):
-            pass
+            filter_books(books, 'author')
         elif (option == '4'):
-            if (sell_complete() == False):
-                return False
+            filter_books(books, 'publisher')
         elif (option == '5'):
-            return False
+            filter_books(books, 'genre')
         elif (option == '6'):
             return False
         else:
