@@ -1,33 +1,5 @@
 [
     {
-        "username": "admin",
-        "password": "admin",
-        "name": "Stefan",
-        "lastname": "Santovac",
-        "type": "Administrator"
-    },
-    {
-        "username": "visnjas",
-        "password": "visnjas",
-        "name": "Višnja",
-        "lastname": "Stojšin",
-        "type": "Manager"
-    },
-    {
-        "username": "future",
-        "password": "freebandz",
-        "name": "Nayvadius",
-        "lastname": "Wilburn",
-        "type": "Manager"
-    },
-    {
-        "username": "jhus",
-        "password": "commonsense",
-        "name": "Momodou",
-        "lastname": "Jallow",
-        "type": "Manager"
-    },
-    {
         "username": "lilbaby_1",
         "password": "4pf",
         "name": "Dominique",
@@ -67,6 +39,55 @@
         "password": "feedthastreets",
         "name": "Rodrick",
         "lastname": "Moore",
+        "type": "Seller"
+    },
+    {
+        "username": "seller",
+        "password": "seller",
+        "name": "Stefan",
+        "lastname": "Santovac",
+        "type": "Seller"
+    },
+    {
+        "username": "visnjas",
+        "password": "visnjas",
+        "name": "Višnja",
+        "lastname": "Stojšin",
+        "type": "Manager"
+    },
+    {
+        "username": "future",
+        "password": "freebandz",
+        "name": "Nayvadius",
+        "lastname": "Wilburn",
+        "type": "Manager"
+    },
+    {
+        "username": "jhus",
+        "password": "commonsense",
+        "name": "Momodou",
+        "lastname": "Jallow",
+        "type": "Manager"
+    },
+    {
+        "username": "manager",
+        "password": "manager",
+        "name": "Stefan",
+        "lastname": "Santovac",
+        "type": "Manager"
+    },
+    {
+        "username": "admin",
+        "password": "admin",
+        "name": "Stefan",
+        "lastname": "Santovac",
+        "type": "Administrator"
+    },
+    {
+        "username": "chip",
+        "password": "munk",
+        "name": "Jahmaal",
+        "lastname": "Fyffe",
         "type": "Seller"
     }
 ]
