@@ -7,7 +7,7 @@ username=''
 
 def login():
     global username
-    print("\n/Project BOOKS by Santovac Stefan/\nCoded for 1920x1080 resolution at 100% font size\nInput 'exit()' as username to exit the program.")
+    print("\n/Project BOOKS by Santovac Stefan/\nCoded for 1920x1080 resolution, 100% font size\nInput 'exit()' as username to exit the program.")
     print('\n-Login-')
     username = input('Username:')
     if(username=='exit()'):
