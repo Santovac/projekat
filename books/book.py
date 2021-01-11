@@ -166,7 +166,6 @@ def sort():
         else:
             print("Invalid option selected, ascending mode selected by default.")
             books.sort(key=lambda books:books.get('price'))
-    print(books)
     list(books)
 
 def find(term):

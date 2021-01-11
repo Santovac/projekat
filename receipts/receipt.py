@@ -105,7 +105,7 @@ def account():
     while True:
         books=all_books()
         bundles=all_bundles()
-        print('\nSell:')
+        print('\nShow:')
         print('1. All transactions')
         print('2. All books sold through bundles')
         print('3. All books sold by a specific author')
