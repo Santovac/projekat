@@ -183,5 +183,87 @@
             }
         ],
         "total": 3571.96
+    },
+    {
+        "id": 3,
+        "seller": "seller",
+        "date_time": "2021-01-11T16:06:09.267499",
+        "articles": [
+            {
+                "id": "350270",
+                "title": "Muzika kao sudbina",
+                "author": "Zora Bokšan Tanurdžić",
+                "isbn": "9788661951688",
+                "publisher": "RTS",
+                "year": 2020,
+                "price": 770.0,
+                "genre": "Muzika",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "350270",
+                "title": "Muzika kao sudbina",
+                "author": "Zora Bokšan Tanurdžić",
+                "isbn": "9788661951688",
+                "publisher": "RTS",
+                "year": 2020,
+                "price": 770.0,
+                "genre": "Muzika",
+                "pages": 447,
+                "erased": false
+            }
+        ],
+        "bundles": [
+            {
+                "id": "348277",
+                "title": "Sveti krov",
+                "author": "Alek Vukadinović",
+                "isbn": "9788683487127",
+                "publisher": "Istočnik",
+                "year": 2002,
+                "price": 289.99,
+                "genre": "Poezija",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "349198",
+                "title": "Solo el viento",
+                "author": "Dejan Aleksić",
+                "isbn": "9788660360696",
+                "publisher": "Kontrast",
+                "year": 2020,
+                "price": 619.99,
+                "genre": "Poezija",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "350403",
+                "title": "25 dana",
+                "author": "Anamarija Tenđera",
+                "isbn": "9788663172142",
+                "publisher": "Nova poetika",
+                "year": 2020,
+                "price": 789.99,
+                "genre": "Poezija",
+                "pages": 447,
+                "erased": false
+            },
+            {
+                "id": "350256",
+                "title": "Gde kad",
+                "author": "Aleksandar Vedenski",
+                "isbn": "9788660400194",
+                "publisher": "Logos",
+                "year": 2020,
+                "price": 1189.99,
+                "genre": "Poezija",
+                "pages": 447,
+                "erased": false
+            }
+        ],
+        "total": 4429.96
     }
 ]
